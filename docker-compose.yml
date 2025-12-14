@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    image: httpd:2.4
+    container_name: apache-server
+    ports:
+      # Maps host port 8080 to container port 80
+      - "8081:80"
+    volumes:
+      # Maps the host directory './public-html' to the container's document root
+      - ./html:/usr/local/apache2/htdocs/
+    restart: always
