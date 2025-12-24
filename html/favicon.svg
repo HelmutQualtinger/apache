@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Schweizer Flagge (links) -->
+  <rect x="0" y="0" width="16" height="32" fill="#FF0000"/>
+  <rect x="6" y="8" width="4" height="16" fill="white"/>
+  <rect x="3" y="12" width="10" height="8" fill="white"/>
+  
+  <!-- Österreichische Flagge (rechts) -->
+  <rect x="16" y="0" width="16" height="10.67" fill="#ED2939"/>
+  <rect x="16" y="10.67" width="16" height="10.67" fill="white"/>
+  <rect x="16" y="21.34" width="16" height="10.66" fill="#ED2939"/>
+  
+  <!-- Österreichischer Adler -->
+  <g transform="translate(24, 16)">
+    <!-- Körper -->
+    <ellipse cx="0" cy="0" rx="2" ry="3" fill="#000"/>
+    <!-- Kopf -->
+    <circle cx="0" cy="-2.5" r="1.3" fill="#000"/>
+    <!-- Schnabel -->
+    <path d="M0,-2.5 L1.2,-2.5 L0.8,-2" fill="#FFD700"/>
+    <!-- Flügel links -->
+    <path d="M-2,-0.5 Q-4.5,-1 -5,-2 Q-5.5,-0.5 -4.5,0.5 Q-3.5,1.5 -2,1.5 Z" fill="#000"/>
+    <!-- Flügel rechts -->
+    <path d="M2,-0.5 Q4.5,-1 5,-2 Q5.5,-0.5 4.5,0.5 Q3.5,1.5 2,1.5 Z" fill="#000"/>
+    <!-- Schwanz -->
+    <path d="M-1,2.5 L0,4.5 L1,2.5 Z" fill="#000"/>
+    <!-- Krone -->
+    <path d="M-0.8,-3.5 L-0.5,-4.2 L-0.2,-3.5 L0.2,-4.2 L0.5,-3.5 L0.8,-4.2 L1,-3.5 L-1,-3.5 Z" fill="#FFD700"/>
+    <!-- Auge -->
+    <circle cx="0.3" cy="-2.7" r="0.2" fill="#FFD700"/>
+  </g>
+</svg>

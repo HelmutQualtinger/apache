@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+    <title>Bekers Welt</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+   <style>
         :root {
             --bg-gradient-1: #e8f4f8;
             --bg-gradient-2: #d9eff5;
@@ -80,29 +86,56 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><filter id="turbulence"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise" seed="2"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R" yChannelSelector="G"/></filter></defs><rect width="1920" height="1080" fill="none"/><g filter="url(%23turbulence)" opacity="0.4"><path d="M0,200 Q480,150 960,200 T1920,200 L1920,0 L0,0 Z" fill="rgba(255,255,255,0.3)" stroke="none"/><path d="M0,350 Q480,320 960,350 T1920,350 L1920,250 Q480,200 960,250 T1920,250 Z" fill="rgba(200,240,255,0.2)" stroke="none"/><path d="M0,500 Q480,480 960,500 T1920,500 L1920,400 Q480,380 960,400 T1920,400 Z" fill="rgba(180,230,250,0.15)" stroke="none"/></g><g opacity="0.25"><path d="M0,150 Q300,130 600,150 T1200,150 T1800,150 T2400,150" stroke="rgba(150,200,230,0.3)" stroke-width="1" fill="none"/><path d="M0,280 Q350,260 700,280 T1400,280 T2100,280" stroke="rgba(140,190,225,0.25)" stroke-width="0.5" fill="none"/><path d="M0,420 Q400,400 800,420 T1600,420 T2400,420" stroke="rgba(130,180,220,0.2)" stroke-width="0.5" fill="none"/></g></svg>');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            width: 200%;
+            height: 45%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><defs><linearGradient id="wave-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(120,220,255,0.5)"/><stop offset="40%25" style="stop-color:rgba(100,200,255,0.35)"/><stop offset="100%25" style="stop-color:rgba(50,150,255,0.05)"/></linearGradient></defs><path d="M0,150 Q240,80 480,150 T960,150 T1440,150 T1920,150 L1920,300 Q960,250 0,300 Z" fill="url(%23wave-grad)" opacity="0.85"/><path d="M0,250 Q300,180 600,250 T1200,250 T1800,250 T2400,250 L2400,450 Q1200,400 0,450 Z" fill="rgba(100,200,255,0.4)" opacity="0.7"/><path d="M0,350 Q350,280 700,350 T1400,350 T2100,350 L2100,600 L0,600 Z" fill="rgba(80,180,255,0.25)" opacity="0.6"/></svg>');
+            background-size: 50% 100%;
+            background-repeat: repeat-x;
+            background-position: 0 bottom;
             pointer-events: none;
             z-index: 1;
+            animation: wave-motion 8s linear infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 40%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 500"><defs><linearGradient id="wave-grad2" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(80,190,255,0.45)"/><stop offset="50%25" style="stop-color:rgba(60,170,240,0.3)"/><stop offset="100%25" style="stop-color:rgba(40,140,220,0.08)"/></linearGradient></defs><path d="M0,100 Q320,20 640,100 T1280,100 T1920,100 T2560,100 L2560,350 Q1280,300 0,350 Z" fill="url(%23wave-grad2)" opacity="0.8"/><path d="M0,200 Q380,120 760,200 T1520,200 T2280,200 L2280,500 L0,500 Z" fill="rgba(60,170,250,0.35)" opacity="0.6"/></svg>');
+            background-size: 48% 100%;
+            background-repeat: repeat-x;
+            background-position: 0 bottom;
+            pointer-events: none;
+            z-index: 0;
+            animation: wave-motion-reverse 10s linear infinite;
+        }
+
+        .container::before {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 35%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400"><defs><linearGradient id="wave-grad3" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(70,170,250,0.4)"/><stop offset="100%25" style="stop-color:rgba(30,120,200,0.1)"/></linearGradient></defs><path d="M0,80 Q280,30 560,80 T1120,80 T1680,80 T2240,80 L2240,250 Q1120,200 0,250 Z" fill="url(%23wave-grad3)" opacity="0.75"/><path d="M0,180 Q320,130 640,180 T1280,180 T1920,180 T2560,180 L2560,400 L0,400 Z" fill="rgba(50,160,240,0.25)" opacity="0.5"/></svg>');
+            background-size: 46% 100%;
+            background-repeat: repeat-x;
+            background-position: 0 bottom;
+            pointer-events: none;
+            z-index: -1;
+            animation: wave-motion-fast 5s linear infinite;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
-            z-index: 2;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            z-index: 10;
         }
 
         .header {
@@ -174,27 +207,85 @@
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0,150,200,0.2);
+            background: linear-gradient(135deg,
+                rgba(180, 140, 100, 0.95) 0%,
+                rgba(150, 110, 70, 0.95) 50%,
+                rgba(120, 85, 50, 0.95) 100%);
+            border: 2px solid rgba(220, 180, 140, 0.4);
             border-radius: 8px;
             padding: 10px;
             transition: all 0.3s ease;
             cursor: pointer;
             text-decoration: none;
-            color: var(--text-color);
+            color: #2a1810;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             width: 100%;
             max-width: 130px;
+            animation: cardWave 6s ease-in-out infinite;
+            animation-delay: calc(var(--card-index) * 0.3s);
+            box-shadow:
+                inset 0 0 30px rgba(255, 255, 255, 0.2),
+                inset 20px 20px 40px rgba(100, 70, 40, 0.3),
+                0 4px 15px rgba(60, 40, 20, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 8%;
+            width: 35%;
+            height: 35%;
+            background: radial-gradient(circle,
+                rgba(255, 240, 220, 0.6) 0%,
+                transparent 70%);
+            border-radius: 50%;
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(85deg,
+                    transparent,
+                    transparent 8px,
+                    rgba(60, 40, 20, 0.15) 8px,
+                    rgba(60, 40, 20, 0.15) 12px),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 15px,
+                    rgba(100, 70, 40, 0.1) 15px,
+                    rgba(100, 70, 40, 0.1) 18px),
+                repeating-linear-gradient(95deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255, 255, 255, 0.05) 20px,
+                    rgba(255, 255, 255, 0.05) 22px);
+            pointer-events: none;
         }
 
         .card:hover {
-            background: var(--card-hover-bg);
-            border-color: var(--border-color);
+            background: linear-gradient(135deg,
+                rgba(200, 160, 120, 1) 0%,
+                rgba(170, 130, 90, 1) 50%,
+                rgba(140, 105, 70, 1) 100%);
+            border-color: rgba(240, 200, 160, 0.6);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,150,200,0.3);
+            box-shadow:
+                inset 0 0 40px rgba(255, 250, 240, 0.3),
+                inset 20px 20px 40px rgba(120, 85, 50, 0.3),
+                0 8px 25px rgba(60, 40, 20, 0.5);
         }
 
         .icon {
@@ -244,6 +335,51 @@
             margin-right: 4px;
         }
 
+        @keyframes cardWave {
+            0% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-15px);
+            }
+            50% {
+                transform: translateY(-25px);
+            }
+            75% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes wave-motion {
+            0% {
+                background-position: 0 bottom;
+            }
+            100% {
+                background-position: 100px bottom;
+            }
+        }
+
+        @keyframes wave-motion-reverse {
+            0% {
+                background-position: 0 bottom;
+            }
+            100% {
+                background-position: -100px bottom;
+            }
+        }
+
+        @keyframes wave-motion-fast {
+            0% {
+                background-position: 0 bottom;
+            }
+            100% {
+                background-position: 80px bottom;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 20px 10px;
@@ -256,6 +392,8 @@
             .card {
                 max-width: 100px;
                 padding: 8px;
+                animation: cardWave 6s ease-in-out infinite;
+                animation-delay: calc(var(--card-index) * 0.3s);
             }
 
             .icon {
@@ -277,7 +415,7 @@
         }
     </style>
 </head>
-<body>
+<body >
     <div class="container">
         <div class="header">
             <h1>🌐 Verfügbare Dienste in Bekers Welt</h1>
@@ -288,7 +426,7 @@
         </div>
 
         <div class="grid" id="grid">
-            <a href="https://chess.bekerh.ddns.net" class="card" target="_blank" style="max-width: 100px;">
+            <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank" style="max-width: 100px;">
                 <div class="icon chess">
                     <img src="https://cdn-icons-png.freepik.com/256/3655/3655055.png?semt=ais_white_label" alt="Chess Icon" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
@@ -296,7 +434,7 @@
                 <div class="card-domain">chess.bekerh.ddns.net</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
-            <a href="https://tetris.bekerh.ddns.net" class="card" target="_blank">
+            <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
     <div class="icon commodity">
         <img src="https://cdn.dribbble.com/userupload/21188001/file/original-73cd4c1ab2602df11b0dccc6feb8739a.jpg?resize=752x&vertical=center" alt="Tetris Icon" style="width: 100%; height: 100%; object-fit: contain;">
     </div>
@@ -304,7 +442,7 @@
     <div class="card-domain">tetris.bekerh.ddns.net</div>
     <div class="status"><span class="status-dot"></span>Online</div>
 </a>
-            <a href="http://btop.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon glance">
                     <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" style="width: 65px; height: 35px;">
                         <!-- BTOP Text -->
@@ -319,14 +457,14 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://docker.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon docker">🐋</div>
                 <div class="card-title">Portainer</div>
                 <div class="card-domain">docker.bekerh.ddns.net</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://monitor.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon monitor">
                     <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 50px;">
                         <!-- Monitor frame -->
@@ -367,7 +505,7 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://mqtt.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon mqtt">
                     <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 40px;">
                         <path d="M 15 35 Q 15 20 25 20 Q 30 10 42 10 Q 55 10 58 22 Q 70 22 70 35 Q 70 48 58 48 Q 25 48 15 35 Z" fill="#5ba3d0" stroke="none"/>
@@ -381,14 +519,14 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://news.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon news">📰</div>
                 <div class="card-title">News</div>
                 <div class="card-domain">news.bekerh.ddns.net</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://ng.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon npm">
                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <defs>
@@ -418,7 +556,7 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://preise.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon commodity">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <!-- Ölfass/Barrel links -->
@@ -466,7 +604,7 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://vc.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon video">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px; fill: currentColor;">
                         <circle cx="12" cy="12" r="12" fill="#0066ff"/>
@@ -478,28 +616,28 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://wetter.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon weather">🌤️</div>
                 <div class="card-title">Wetter</div>
                 <div class="card-domain">wetter.bekerh.ddns.net</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://wetter.beker.club" class="card" target="_blank">
+            <a href="http://wetter.beker.club" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon weather">📊</div>
                 <div class="card-title">Wetterarchive</div>
                 <div class="card-domain">wetter.beker.club</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://cc.beker.club" class="card" target="_blank">
+            <a href="http://cc.beker.club" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon homeserver">🏠</div>
                 <div class="card-title">HomeServer</div>
                 <div class="card-domain">cc.beker.club</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="https://al.bekerh.ddns.net" class="card" target="_blank">
+            <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon goaccess">
                     <img src="https://r4ven.fr/images-illustration/cover-goaccess.webp" alt="GoAccess Icon" style="width: 50px; height: 50px;">
                 </div>
@@ -508,7 +646,7 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://rectoscan.bekerh.ddns.net" class="card" target="_blank">
+            <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
                 <div class="icon">
                     <i class="fa-solid fa-sort" style="font-size: 1.8em; margin-bottom: 6px;"></i>
                 </div>
@@ -525,6 +663,13 @@
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         const cards = document.querySelectorAll('.card');
+        
+        // Add gentle wave animation to cards
+        cards.forEach((card, index) => {
+            card.style.setProperty('--card-index', index);
+            card.style.animationDelay = `${index * 0.05}s`;
+        });
+        
 
         // Load theme from localStorage
         const savedTheme = localStorage.getItem('theme') || 'light';
