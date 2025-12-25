@@ -13,17 +13,17 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
    <style>
         :root {
-            --bg-gradient-1: #e8f4f8;
-            --bg-gradient-2: #d9eff5;
-            --bg-gradient-3: #c8eaf2;
-            --bg-gradient-4: #b8e5ef;
-            --bg-gradient-5: #a8e0ed;
-            --bg-gradient-6: #98dbea;
-            --bg-gradient-7: #88d6e7;
-            --bg-gradient-8: #78d1e4;
-            --bg-gradient-9: #68cce1;
-            --bg-gradient-10: #5ac8de;
-            --bg-gradient-11: #4dc4db;
+            --bg-gradient-1: #f0f8fc;
+            --bg-gradient-2: #e8f4fa;
+            --bg-gradient-3: #dceef7;
+            --bg-gradient-4: #d0e8f4;
+            --bg-gradient-5: #c4e2f1;
+            --bg-gradient-6: #b8dcee;
+            --bg-gradient-7: #acd6eb;
+            --bg-gradient-8: #a0d0e8;
+            --bg-gradient-9: #94cae5;
+            --bg-gradient-10: #88c4e2;
+            --bg-gradient-11: #7cbfdf;
             
             --text-color: #1a4d6d;
             --header-color: #006699;
@@ -37,17 +37,17 @@
         }
 
         body.dark-theme {
-            --bg-gradient-1: #0a1428;
-            --bg-gradient-2: #0d1839;
-            --bg-gradient-3: #101c47;
-            --bg-gradient-4: #132050;
-            --bg-gradient-5: #162459;
-            --bg-gradient-6: #192862;
-            --bg-gradient-7: #1c2c6b;
-            --bg-gradient-8: #1f3074;
-            --bg-gradient-9: #22347d;
-            --bg-gradient-10: #253886;
-            --bg-gradient-11: #283c8f;
+            --bg-gradient-1: #0f1f35;
+            --bg-gradient-2: #122639;
+            --bg-gradient-3: #152d40;
+            --bg-gradient-4: #183448;
+            --bg-gradient-5: #1b3b50;
+            --bg-gradient-6: #1e4258;
+            --bg-gradient-7: #214960;
+            --bg-gradient-8: #245068;
+            --bg-gradient-9: #275770;
+            --bg-gradient-10: #2a5e78;
+            --bg-gradient-11: #2d6580;
             
             --text-color: #b8d4e8;
             --header-color: #64d4ff;
@@ -62,7 +62,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, 
+            background: linear-gradient(to bottom,
                 var(--bg-gradient-1) 0%,
                 var(--bg-gradient-2) 8%,
                 var(--bg-gradient-3) 15%,
@@ -81,6 +81,7 @@
             color: var(--text-color);
             position: relative;
             transition: background 0.5s ease, color 0.5s ease;
+            filter: saturate(1.05) brightness(1.02);
         }
 
         body::before {
@@ -90,13 +91,13 @@
             left: 0;
             width: 200%;
             height: 45%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><defs><linearGradient id="wave-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(120,220,255,0.5)"/><stop offset="40%25" style="stop-color:rgba(100,200,255,0.35)"/><stop offset="100%25" style="stop-color:rgba(50,150,255,0.05)"/></linearGradient></defs><path d="M0,150 Q240,80 480,150 T960,150 T1440,150 T1920,150 L1920,300 Q960,250 0,300 Z" fill="url(%23wave-grad)" opacity="0.85"/><path d="M0,250 Q300,180 600,250 T1200,250 T1800,250 T2400,250 L2400,450 Q1200,400 0,450 Z" fill="rgba(100,200,255,0.4)" opacity="0.7"/><path d="M0,350 Q350,280 700,350 T1400,350 T2100,350 L2100,600 L0,600 Z" fill="rgba(80,180,255,0.25)" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><defs><linearGradient id="wave-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(150,230,255,0.6)"/><stop offset="15%25" style="stop-color:rgba(140,220,255,0.5)"/><stop offset="35%25" style="stop-color:rgba(100,200,255,0.35)"/><stop offset="65%25" style="stop-color:rgba(70,170,240,0.15)"/><stop offset="100%25" style="stop-color:rgba(40,120,200,0.02)"/></linearGradient><linearGradient id="foam-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(220,245,255,0.7)"/><stop offset="50%25" style="stop-color:rgba(200,240,255,0.3)"/><stop offset="100%25" style="stop-color:rgba(180,230,255,0.05)"/></linearGradient></defs><path d="M0,140 C120,90 180,110 280,100 C380,90 440,130 560,140 C680,150 740,100 860,110 C980,120 1040,145 1160,140 C1280,135 1340,110 1460,120 C1580,130 1640,150 1760,140 C1880,130 1920,145 1920,150 L1920,320 C1880,325 1800,330 1680,325 C1560,320 1440,310 1320,318 C1200,326 1080,330 960,325 C840,320 720,315 600,322 C480,329 360,330 240,320 C120,310 60,315 0,320 Z" fill="url(%23wave-grad)" opacity="0.9"/><path d="M0,160 C140,130 200,155 330,160 C460,165 520,140 680,150 C840,160 900,135 1060,145 C1220,155 1280,165 1440,160 C1600,155 1660,140 1820,150 C1890,155 1920,160 1920,165 L1920,420 C1820,415 1700,410 1580,415 C1460,420 1340,425 1220,420 C1100,415 980,410 860,418 C740,426 620,425 500,418 C380,411 260,410 140,415 C70,418 0,420 0,420 Z" fill="url(%23foam-grad)" opacity="0.7"/><path d="M0,220 C100,200 160,220 300,225 C440,230 500,210 660,218 C820,226 880,235 1040,220 C1200,205 1260,215 1420,222 C1580,229 1640,235 1800,220 C1860,215 1920,225 1920,230 L1920,600 L0,600 Z" fill="rgba(100,200,255,0.25)" opacity="0.5"/></svg>');
             background-size: 50% 100%;
             background-repeat: repeat-x;
             background-position: 0 bottom;
             pointer-events: none;
             z-index: 1;
-            animation: wave-motion 8s linear infinite;
+            animation: wave-motion 9s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
         }
 
         body::after {
@@ -106,13 +107,13 @@
             left: 0;
             width: 200%;
             height: 40%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 500"><defs><linearGradient id="wave-grad2" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(80,190,255,0.45)"/><stop offset="50%25" style="stop-color:rgba(60,170,240,0.3)"/><stop offset="100%25" style="stop-color:rgba(40,140,220,0.08)"/></linearGradient></defs><path d="M0,100 Q320,20 640,100 T1280,100 T1920,100 T2560,100 L2560,350 Q1280,300 0,350 Z" fill="url(%23wave-grad2)" opacity="0.8"/><path d="M0,200 Q380,120 760,200 T1520,200 T2280,200 L2280,500 L0,500 Z" fill="rgba(60,170,250,0.35)" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 500"><defs><linearGradient id="wave-grad2" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(120,210,245,0.5)"/><stop offset="20%25" style="stop-color:rgba(100,190,240,0.4)"/><stop offset="50%25" style="stop-color:rgba(70,160,220,0.25)"/><stop offset="85%25" style="stop-color:rgba(50,130,200,0.1)"/><stop offset="100%25" style="stop-color:rgba(30,100,180,0.03)"/></linearGradient><linearGradient id="deep-wave" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(80,180,230,0.35)"/><stop offset="100%25" style="stop-color:rgba(40,130,190,0.08)"/></linearGradient></defs><path d="M0,95 C110,60 170,85 290,100 C410,115 480,85 620,95 C760,105 820,120 960,100 C1100,80 1160,95 1300,105 C1440,115 1500,90 1640,100 C1780,110 1840,120 1920,100 L1920,350 C1840,335 1760,320 1640,330 C1520,340 1400,345 1280,340 C1160,335 1040,330 920,338 C800,346 680,345 560,340 C440,335 320,335 200,338 C100,340 20,345 0,350 Z" fill="url(%23wave-grad2)" opacity="0.85"/><path d="M0,180 C80,155 140,175 280,190 C420,205 500,175 680,185 C860,195 920,210 1080,190 C1240,170 1300,185 1460,195 C1620,205 1680,215 1840,190 C1880,185 1920,190 1920,195 L1920,500 L0,500 Z" fill="url(%23deep-wave)" opacity="0.6"/></svg>');
             background-size: 48% 100%;
             background-repeat: repeat-x;
             background-position: 0 bottom;
             pointer-events: none;
             z-index: 0;
-            animation: wave-motion-reverse 10s linear infinite;
+            animation: wave-motion-reverse 11s cubic-bezier(0.45, 0.0, 0.25, 1) infinite;
         }
 
         .container::before {
@@ -122,13 +123,13 @@
             left: 0;
             width: 200%;
             height: 35%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400"><defs><linearGradient id="wave-grad3" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(70,170,250,0.4)"/><stop offset="100%25" style="stop-color:rgba(30,120,200,0.1)"/></linearGradient></defs><path d="M0,80 Q280,30 560,80 T1120,80 T1680,80 T2240,80 L2240,250 Q1120,200 0,250 Z" fill="url(%23wave-grad3)" opacity="0.75"/><path d="M0,180 Q320,130 640,180 T1280,180 T1920,180 T2560,180 L2560,400 L0,400 Z" fill="rgba(50,160,240,0.25)" opacity="0.5"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400"><defs><linearGradient id="wave-grad3" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(100,200,240,0.45)"/><stop offset="30%25" style="stop-color:rgba(80,180,230,0.3)"/><stop offset="70%25" style="stop-color:rgba(60,150,210,0.15)"/><stop offset="100%25" style="stop-color:rgba(40,120,190,0.05)"/></linearGradient><linearGradient id="shimmer" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(150,230,255,0.25)"/><stop offset="100%25" style="stop-color:rgba(100,200,240,0.05)"/></linearGradient></defs><path d="M0,75 C90,50 140,70 260,80 C380,90 450,65 600,75 C750,85 800,95 960,75 C1120,55 1180,70 1320,80 C1460,90 1520,100 1680,75 C1800,60 1860,75 1920,80 L1920,240 C1860,235 1800,230 1680,235 C1560,240 1440,240 1320,238 C1200,236 1080,235 960,240 C840,245 720,245 600,240 C480,235 360,235 240,238 C120,241 40,245 0,245 Z" fill="url(%23wave-grad3)" opacity="0.8"/><path d="M0,150 C70,130 120,150 240,160 C360,170 430,150 580,160 C730,170 780,180 940,160 C1100,140 1160,155 1300,165 C1440,175 1500,180 1660,160 C1780,150 1860,160 1920,165 L1920,400 L0,400 Z" fill="url(%23shimmer)" opacity="0.5"/></svg>');
             background-size: 46% 100%;
             background-repeat: repeat-x;
             background-position: 0 bottom;
             pointer-events: none;
             z-index: -1;
-            animation: wave-motion-fast 5s linear infinite;
+            animation: wave-motion-fast 6.5s cubic-bezier(0.35, 0.0, 0.3, 1) infinite;
         }
 
         .container {
@@ -224,8 +225,8 @@
             text-align: center;
             width: 100%;
             max-width: 130px;
-            animation: cardWave 6s ease-in-out infinite;
-            animation-delay: calc(var(--card-index) * 0.3s);
+            animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
+            animation-delay: calc(var(--card-index) * 0.25s);
             box-shadow:
                 inset 0 0 30px rgba(255, 255, 255, 0.2),
                 inset 20px 20px 40px rgba(100, 70, 40, 0.3),
@@ -338,18 +339,39 @@
         @keyframes cardWave {
             0% {
                 transform: translateY(0);
+                opacity: 0.95;
+            }
+            12.5% {
+                transform: translateY(-8px);
+                opacity: 0.97;
             }
             25% {
-                transform: translateY(-15px);
+                transform: translateY(-16px);
+                opacity: 0.98;
+            }
+            37.5% {
+                transform: translateY(-22px);
+                opacity: 0.99;
             }
             50% {
-                transform: translateY(-25px);
+                transform: translateY(-26px);
+                opacity: 1;
+            }
+            62.5% {
+                transform: translateY(-22px);
+                opacity: 0.99;
             }
             75% {
-                transform: translateY(-15px);
+                transform: translateY(-16px);
+                opacity: 0.98;
+            }
+            87.5% {
+                transform: translateY(-8px);
+                opacity: 0.97;
             }
             100% {
                 transform: translateY(0);
+                opacity: 0.95;
             }
         }
 
@@ -430,6 +452,8 @@
             border-radius: 8px;
             padding: 12px;
             text-align: center;
+            animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
+            animation-delay: calc(var(--card-index) * 0.25s);
         }
 
         .weather-label {
@@ -499,8 +523,8 @@
             .card {
                 max-width: 100px;
                 padding: 8px;
-                animation: cardWave 6s ease-in-out infinite;
-                animation-delay: calc(var(--card-index) * 0.3s);
+                animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
+                animation-delay: calc(var(--card-index) * 0.25s);
             }
 
             .icon {
@@ -546,26 +570,10 @@
 <body >
     <div class="container">
         <div class="header">
-            <h1><img src="/favicon.svg" alt="Favicon" style="width: 1.2em; height: 1.2em; vertical-align: middle; margin-right: 8px;"> Verfügbare Dienste in Bekers Welt</h1>
+            <h1><img src="/favicon.svg" alt="Favicon" style="width: 2.2em; height: 2.2em; vertical-align: middle; margin-right: 8px;"> Verfügbare Dienste in Bekers Welt</h1>
             <div class="header-controls">
                 <input type="text" class="search-box" id="searchInput" placeholder="Search Host...">
                 <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
-            </div>
-        </div>
-
-        <div class="weather-webcam-section">
-            <div class="weather-section">
-                <div class="weather-title">🌍 Wetter Rebstein</div>
-                <div id="weatherContainer" class="weather-grid">
-                    <div class="weather-loading">Wetter wird geladen...</div>
-                </div>
-            </div>
-
-            <div class="webcam-section-small">
-                <div class="weather-title">📹 Webcam</div>
-                <div class="webcam-container-small">
-                    <iframe src="https://saentis.roundshot.com/" title="Säntis 360° Panorama Webcam" frameborder="0" allowfullscreen></iframe>
-                </div>
             </div>
         </div>
 
@@ -797,6 +805,22 @@
             </a>
 
         </div>
+
+        <div class="weather-webcam-section">
+            <div class="weather-section">
+                <div class="weather-title">🌍 Wetter Rebstein</div>
+                <div id="weatherContainer" class="weather-grid">
+                    <div class="weather-loading">Wetter wird geladen...</div>
+                </div>
+            </div>
+
+            <div class="webcam-section-small">
+                <div class="weather-title">📹 Webcam</div>
+                <div class="webcam-container-small">
+                    <iframe src="https://saentis.roundshot.com/" title="Säntis 360° Panorama Webcam" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -971,6 +995,12 @@
                 `;
 
                 weatherContainer.innerHTML = html;
+
+                // Add wave animation to weather items
+                const weatherItems = weatherContainer.querySelectorAll('.weather-item');
+                weatherItems.forEach((item, index) => {
+                    item.style.setProperty('--card-index', index);
+                });
             } catch (error) {
                 console.error('Error fetching weather:', error);
                 console.error('Error message:', error.message);
