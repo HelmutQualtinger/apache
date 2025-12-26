@@ -306,7 +306,16 @@
         .icon.weather { color: #64c8ff; }
         .icon.homeserver { color: #ff9d00; }
         .icon.goaccess { color: #00a0d2; } /* Added for GoAccess */
+        .icon.sudoku { color: #FF6B6B; }
 
+        .sudoku-rotated {
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .sudoku-rotated {
+            transform: rotate(0deg);
+        }
 
         .card-title {
             font-weight: 600;
@@ -412,9 +421,9 @@
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
+            padding: 12px;
             box-shadow: 0 4px 15px rgba(0, 150, 200, 0.1);
-            flex: 2;
+            flex: 1;
         }
 
         .webcam-section-small {
@@ -431,7 +440,7 @@
         .weather-title {
             font-size: 1.3em;
             color: var(--header-color);
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
@@ -442,15 +451,15 @@
 
         .weather-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
 
         .weather-item {
             background: linear-gradient(135deg, rgba(100, 200, 255, 0.1), rgba(80, 180, 255, 0.05));
             border: 1px solid rgba(0, 150, 200, 0.2);
             border-radius: 8px;
-            padding: 12px;
+            padding: 8px;
             text-align: center;
             animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
             animation-delay: calc(var(--card-index) * 0.25s);
@@ -508,7 +517,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            min-height: 250px;
+            min-height: 400px;
         }
 
         @media (max-width: 768px) {
@@ -562,7 +571,7 @@
             }
 
             .webcam-container-small iframe {
-                min-height: 200px;
+                min-height: 300px;
             }
         }
     </style>
@@ -578,45 +587,154 @@
         </div>
 
         <div class="grid" id="grid">
-            <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank" style="max-width: 100px;">
+            
+            <!-- Jitsi Video Conference -->
+            <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+                <div class="icon video">
+                    <img src="/vc.png" alt="Video-Konferenz Icon" style="width: 65px; height: 65px; object-fit: contain;">
+                </div>
+                <div class="card-title">Jitsi Video Conference</div>
+                <div class="card-domain">vc.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Home Server -->
+            <a href="http://cc.beker.club" class="card" style="--card-index: 1" target="_blank">
+                <div class="icon homeserver">🏠</div>
+                <div class="card-title">Home Server</div>
+                <div class="card-domain">cc.beker.club</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- News -->
+            <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 2" target="_blank">
+                <div class="icon news">📰</div>
+                <div class="card-title">News</div>
+                <div class="card-domain">news.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Wetter -->
+            <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 3" target="_blank">
+                <div class="icon weather">🌤️</div>
+                <div class="card-title">Wetter</div>
+                <div class="card-domain">wetter.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Wetter Archive -->
+            <a href="http://wetter.beker.club" class="card" style="--card-index: 4" target="_blank">
+                <div class="icon weather">📊</div>
+                <div class="card-title">Wetter Archive</div>
+                <div class="card-domain">wetter.beker.club</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- GoAccess -->
+            <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 5" target="_blank">
+                <div class="icon goaccess">
+                    <img src="https://r4ven.fr/images-illustration/cover-goaccess.webp" alt="GoAccess Icon" style="width: 50px; height: 50px;">
+                </div>
+                <div class="card-title">GoAccess</div>
+                <div class="card-domain">al.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Chess -->
+            <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 6" target="_blank">
                 <div class="icon chess">
-                    <img src="https://cdn-icons-png.freepik.com/256/3655/3655055.png?semt=ais_white_label" alt="Chess Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                    <img src="https://cdn-icons-png.freepik.com/256/3655/3655055.png?semt=ais_white_label" alt="Chess Icon" style="width: 60%; height: 60%; object-fit: contain;">
                 </div>
                 <div class="card-title">Chess</div>
                 <div class="card-domain">chess.bekerh.ddns.net</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
-            <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-    <div class="icon commodity">
-        <img src="https://cdn.dribbble.com/userupload/21188001/file/original-73cd4c1ab2602df11b0dccc6feb8739a.jpg?resize=752x&vertical=center" alt="Tetris Icon" style="width: 100%; height: 100%; object-fit: contain;">
-    </div>
-    <div class="card-title">Tetris</div>
-    <div class="card-domain">tetris.bekerh.ddns.net</div>
-    <div class="status"><span class="status-dot"></span>Online</div>
-</a>
-            <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon glance">
-                    <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" style="width: 65px; height: 35px;">
-                        <!-- BTOP Text -->
-                        <text x="25" y="38" font-size="24" font-weight="bold" fill="#FF3333" font-family="Arial, sans-serif">BTOP</text>
-                        
-                        <!-- Play Triangle -->
-                        <polygon points="75,20 75,50 105,35" fill="#FF3333"/>
+
+            <!-- Tetris -->
+            <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 7" target="_blank">
+                <div class="icon commodity">
+                    <img src="https://cdn.dribbble.com/userupload/21188001/file/original-73cd4c1ab2602df11b0dccc6feb8739a.jpg?resize=752x&vertical=center" alt="Tetris Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="card-title">Tetris</div>
+                <div class="card-domain">tetris.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Sudoku -->
+            <a href="https://sudoku.bekerh.ddns.net" class="card" style="--card-index: 8" target="_blank">
+                <div class="icon sudoku sudoku-rotated">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                        <defs>
+                            <linearGradient id="sudokuGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF6B6B"/>
+                                <stop offset="100%" style="stop-color:#FF4757"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFA502"/>
+                                <stop offset="100%" style="stop-color:#FF7F50"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFD93D"/>
+                                <stop offset="100%" style="stop-color:#FFC93C"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6BCB77"/>
+                                <stop offset="100%" style="stop-color:#4D96FF"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4D96FF"/>
+                                <stop offset="100%" style="stop-color:#9D84B7"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF10F0"/>
+                                <stop offset="100%" style="stop-color:#FF6B9D"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#A8E6CF"/>
+                                <stop offset="100%" style="stop-color:#56AB91"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFB6C1"/>
+                                <stop offset="100%" style="stop-color:#FF69B4"/>
+                            </linearGradient>
+                            <linearGradient id="sudokuGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#87CEEB"/>
+                                <stop offset="100%" style="stop-color:#4169E1"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer border -->
+                        <rect x="5" y="5" width="90" height="90" fill="none" stroke="#333" stroke-width="3" rx="3"/>
+                        <!-- Main grid lines (3x3) -->
+                        <line x1="5" y1="35" x2="95" y2="35" stroke="#333" stroke-width="2"/>
+                        <line x1="5" y1="65" x2="95" y2="65" stroke="#333" stroke-width="2"/>
+                        <line x1="35" y1="5" x2="35" y2="95" stroke="#333" stroke-width="2"/>
+                        <line x1="65" y1="5" x2="65" y2="95" stroke="#333" stroke-width="2"/>
+                        <!-- Minor grid lines -->
+                        <line x1="5" y1="20" x2="95" y2="20" stroke="#999" stroke-width="0.5"/>
+                        <line x1="5" y1="50" x2="95" y2="50" stroke="#999" stroke-width="0.5"/>
+                        <line x1="5" y1="80" x2="95" y2="80" stroke="#999" stroke-width="0.5"/>
+                        <line x1="20" y1="5" x2="20" y2="95" stroke="#999" stroke-width="0.5"/>
+                        <line x1="50" y1="5" x2="50" y2="95" stroke="#999" stroke-width="0.5"/>
+                        <line x1="80" y1="5" x2="80" y2="95" stroke="#999" stroke-width="0.5"/>
+                        <!-- Black numbers in cells - larger and more visible -->
+                        <text x="15" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">5</text>
+                        <text x="50" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">3</text>
+                        <text x="85" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">7</text>
+                        <text x="15" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">9</text>
+                        <text x="50" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">1</text>
+                        <text x="85" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">2</text>
+                        <text x="15" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">8</text>
+                        <text x="50" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">4</text>
+                        <text x="85" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">6</text>
                     </svg>
                 </div>
-                <div class="card-title">Glances</div>
-                <div class="card-domain">btop.bekerh.ddns.net</div>
+                <div class="card-title">Sudoku</div>
+                <div class="card-domain">sudoku.bekerh.ddns.net</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon docker">🐋</div>
-                <div class="card-title">Portainer</div>
-                <div class="card-domain">docker.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+            <!-- Netdata -->
+            <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 9" target="_blank">
                 <div class="icon monitor">
                     <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 50px;">
                         <!-- Monitor frame -->
@@ -657,7 +775,34 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+            <!-- Existing cards that were not in the user's list -->
+            
+            <!-- Glances -->
+            <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 10" target="_blank">
+                <div class="icon glance">
+                    <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" style="width: 65px; height: 35px;">
+                        <!-- BTOP Text -->
+                        <text x="25" y="38" font-size="24" font-weight="bold" fill="#FF3333" font-family="Arial, sans-serif">BTOP</text>
+                        
+                        <!-- Play Triangle -->
+                        <polygon points="75,20 75,50 105,35" fill="#FF3333"/>
+                    </svg>
+                </div>
+                <div class="card-title">Glances</div>
+                <div class="card-domain">btop.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Portainer -->
+            <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 11" target="_blank">
+                <div class="icon docker">🐋</div>
+                <div class="card-title">Portainer</div>
+                <div class="card-domain">docker.bekerh.ddns.net</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- MQTT Explorer -->
+            <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 12" target="_blank">
                 <div class="icon mqtt">
                     <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 40px;">
                         <path d="M 15 35 Q 15 20 25 20 Q 30 10 42 10 Q 55 10 58 22 Q 70 22 70 35 Q 70 48 58 48 Q 25 48 15 35 Z" fill="#5ba3d0" stroke="none"/>
@@ -671,14 +816,8 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon news">📰</div>
-                <div class="card-title">News</div>
-                <div class="card-domain">news.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+            <!-- NPM -->
+            <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 13" target="_blank">
                 <div class="icon npm">
                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <defs>
@@ -708,7 +847,8 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+            <!-- Commodities -->
+            <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 14" target="_blank">
                 <div class="icon commodity">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <!-- Ölfass/Barrel links -->
@@ -756,46 +896,8 @@
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 
-            <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon video">
-                    <img src="/vc.png" alt="Video-Konferenz Icon" style="width: 65px; height: 65px; object-fit: contain;">
-                </div>
-                <div class="card-title">Video-Konferenz</div>
-                <div class="card-domain">vc.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon weather">🌤️</div>
-                <div class="card-title">Wetter</div>
-                <div class="card-domain">wetter.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="http://wetter.beker.club" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon weather">📊</div>
-                <div class="card-title">Wetterarchive</div>
-                <div class="card-domain">wetter.beker.club</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="http://cc.beker.club" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon homeserver">🏠</div>
-                <div class="card-title">HomeServer</div>
-                <div class="card-domain">cc.beker.club</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
-                <div class="icon goaccess">
-                    <img src="https://r4ven.fr/images-illustration/cover-goaccess.webp" alt="GoAccess Icon" style="width: 50px; height: 50px;">
-                </div>
-                <div class="card-title">GoAccess</div>
-                <div class="card-domain">al.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-
-            <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+            <!-- PDF Reorder -->
+            <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 15" target="_blank">
                 <div class="icon">
                     <i class="fa-solid fa-sort" style="font-size: 1.8em; margin-bottom: 6px;"></i>
                 </div>
@@ -815,7 +917,14 @@
             </div>
 
             <div class="webcam-section-small">
-                <div class="weather-title">📹 Webcam</div>
+                <div class="weather-title">📹 Hoher Kasten</div>
+                <div class="webcam-container-small">
+                    <iframe src="https://webtvfc.feratel.com/webtv/?design=v5&pg=DA7D2F22-8600-464D-9D4F-CDB04014A6C5&cam=4260" title="Hoher Kasten Webcam" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="webcam-section-small">
+                <div class="weather-title">📹 Säntis</div>
                 <div class="webcam-container-small">
                     <iframe src="https://saentis.roundshot.com/" title="Säntis 360° Panorama Webcam" frameborder="0" allowfullscreen></iframe>
                 </div>
