@@ -307,6 +307,8 @@
         .icon.homeserver { color: #ff9d00; }
         .icon.goaccess { color: #00a0d2; } /* Added for GoAccess */
         .icon.sudoku { color: #FF6B6B; }
+        .icon.covid { color: #FF0000; }
+        .icon.statistik { color: #00D4FF; }
 
         .sudoku-rotated {
             transform: rotate(-5deg);
@@ -903,6 +905,135 @@
                 </div>
                 <div class="card-title">PDF Reorder</div>
                 <div class="card-domain">rectoscan-web-container:5000</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- Covid Hoax -->
+            <a href="https://github.com/HelmutQualtinger/Sterbetafeln/blob/5years/README.md" class="card" style="--card-index: 16" target="_blank">
+                <div class="icon covid">
+                    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
+                        <defs>
+                            <radialGradient id="covidGrad" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#FF6B6B"/>
+                                <stop offset="70%" style="stop-color:#FF0000"/>
+                                <stop offset="100%" style="stop-color:#CC0000"/>
+                            </radialGradient>
+                            <filter id="covidShadow">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                                <feOffset dx="0" dy="3"/>
+                            </filter>
+                        </defs>
+                        <!-- Main sphere -->
+                        <circle cx="60" cy="60" r="35" fill="url(#covidGrad)" filter="url(#covidShadow)"/>
+                        <!-- Highlight for 3D effect -->
+                        <ellipse cx="48" cy="45" rx="12" ry="15" fill="rgba(255,255,255,0.3)" opacity="0.6"/>
+
+                        <!-- Spikes with gradients -->
+                        <!-- Top -->
+                        <g fill="#FF0000">
+                            <circle cx="60" cy="15" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 58 27 Q 60 35 60 45" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Top-right -->
+                        <g fill="#FF0000">
+                            <circle cx="85" cy="25" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 80 32 Q 82 37 75 50" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Right -->
+                        <g fill="#FF0000">
+                            <circle cx="105" cy="60" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 97 60 Q 91 60 80 60" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Bottom-right -->
+                        <g fill="#FF0000">
+                            <circle cx="85" cy="95" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 80 88 Q 78 83 75 70" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Bottom -->
+                        <g fill="#FF0000">
+                            <circle cx="60" cy="105" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 60 93 Q 60 85 60 75" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Bottom-left -->
+                        <g fill="#FF0000">
+                            <circle cx="35" cy="95" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 40 88 Q 42 83 45 70" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Left -->
+                        <g fill="#FF0000">
+                            <circle cx="15" cy="60" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 23 60 Q 29 60 40 60" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- Top-left -->
+                        <g fill="#FF0000">
+                            <circle cx="35" cy="25" r="8" fill="url(#covidGrad)"/>
+                            <path d="M 40 32 Q 38 37 45 50" stroke="#FF0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="card-title">Covid Hoax</div>
+                <div class="card-domain">github.com</div>
+                <div class="status"><span class="status-dot"></span>Online</div>
+            </a>
+
+            <!-- IQ -->
+            <a href="https://qualcuno.info/Statistik/" class="card" style="--card-index: 17" target="_blank">
+                <div class="icon statistik">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                        <!-- Ocean background -->
+                        <circle cx="50" cy="50" r="42" fill="#003366" stroke="#00D4FF" stroke-width="2"/>
+
+                        <!-- North America -->
+                        <path d="M 18 28 L 22 24 L 25 22 L 27 24 L 29 26 L 30 30 L 29 36 L 26 38 L 22 36 L 20 32 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Central America -->
+                        <path d="M 27 38 L 29 38 L 30 42 L 28 43 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- South America -->
+                        <path d="M 28 43 L 32 42 L 34 44 L 35 48 L 36 54 L 35 62 L 32 66 L 29 64 L 28 58 L 27 50 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Greenland -->
+                        <path d="M 56 14 L 59 12 L 60 16 L 57 18 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Iceland -->
+                        <path d="M 50 20 L 52 20 L 52 22 L 50 22 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Europe -->
+                        <path d="M 48 22 L 54 20 L 57 22 L 58 26 L 56 30 L 52 32 L 48 30 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- North Africa -->
+                        <path d="M 52 32 L 58 30 L 62 32 L 62 38 L 58 40 L 54 38 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Africa -->
+                        <path d="M 54 38 L 62 38 L 65 42 L 66 50 L 65 60 L 62 66 L 58 68 L 55 66 L 54 58 L 53 48 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Middle East -->
+                        <path d="M 62 32 L 68 30 L 70 34 L 68 40 L 64 40 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- India/South Asia -->
+                        <path d="M 68 40 L 72 38 L 74 42 L 72 48 L 70 48 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Asia (Russia/North Asia) -->
+                        <path d="M 68 24 L 80 22 L 82 28 L 78 32 L 70 32 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- East Asia (China/Japan) -->
+                        <path d="M 76 28 L 82 26 L 84 32 L 82 38 L 76 40 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Southeast Asia -->
+                        <path d="M 74 40 L 80 38 L 82 44 L 79 48 L 74 46 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Indonesia -->
+                        <path d="M 78 46 L 84 44 L 85 50 L 80 52 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- Australia -->
+                        <path d="M 76 54 L 82 52 L 84 58 L 81 64 L 76 64 Z" fill="#00D4FF" opacity="0.8"/>
+
+                        <!-- New Zealand -->
+                        <path d="M 85 62 L 87 60 L 87 66 L 85 68 Z" fill="#00D4FF" opacity="0.8"/>
+                    </svg>
+                </div>
+                <div class="card-title">IQ</div>
+                <div class="card-domain">qualcuno.info</div>
                 <div class="status"><span class="status-dot"></span>Online</div>
             </a>
 

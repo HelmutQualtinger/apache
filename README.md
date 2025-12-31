@@ -6,12 +6,14 @@ Ein modernes, responsives Web-Dashboard zur Verwaltung und Übersicht von versch
 
 Das Dashboard bietet eine zentrale Übersicht über folgende Funktionen:
 
-- **Service-Verzeichnis**: Links zu verschiedenen gehosteten Diensten (Chess, Tetris, Portainer, MQTT Explorer, NPM, GoAccess, Video-Konferenz, etc.)
+- **Service-Verzeichnis**: Links zu verschiedenen gehosteten Diensten (Chess, Tetris, Sudoku, Portainer, MQTT Explorer, NPM, GoAccess, Video-Konferenz, etc.)
 - **Wetterdaten**: Echtzeitinformationen zum Wetter in Rebstein (Temperatur, Luftfeuchtigkeit, Luftdruck, Windgeschwindigkeit, Bewölkung)
-- **Webcam-Integration**: Live-Stream von der Säntis 360° Panorama Webcam
+- **Webcam-Integration**: Live-Streams von der Säntis 360° Panorama Webcam und Hoher Kasten Webcam
 - **Suchfunktion**: Schnelle Filterung der verfügbaren Dienste
 - **Dark Mode**: Umschalter zwischen hellem und dunklem Design-Theme
 - **Responsive Design**: Funktioniert auf Desktop, Tablet und Mobile-Geräten
+- **Anime-Wellen-Animation**: Photorealistisch animierte Hintergrundelemente mit natürlichem Wasserwellen-Effekt
+- **Spiele-Integration**: Eingebettete Spiele wie Sudoku (mit Hover-Animation), Chess und Tetris
 
 ## Wie funktioniert die App?
 
@@ -63,7 +65,8 @@ Die App ist eine **Single Page Application (SPA)** mit folgender Struktur:
 | API | Zweck | Quelle |
 |-----|-------|--------|
 | **Open-Meteo** | Wetterdaten (kostenlos, Open-Source) | `https://api.open-meteo.com/v1/forecast` |
-| **Säntis Roundshot** | 360° Panorama-Webcam | `https://saentis.roundshot.com/` |
+| **Säntis Roundshot** | 360° Panorama-Webcam Säntis | `https://saentis.roundshot.com/` |
+| **Feratel WebTV** | Hoher Kasten Webcam | `https://webtvfc.feratel.com/webtv/` |
 
 ### Wetter-API Details
 
@@ -81,21 +84,34 @@ GET /v1/forecast?
 
 ### Gehostete Services
 
-Die App verlinkt auf verschiedene Dienste:
+Die App verlinkt auf verschiedene Dienste, organisiert nach Kategorie:
 
-- **Chess**: Schachspiel
-- **Tetris**: Tetris-Game
-- **Glances/BTOP**: System-Monitoring
-- **Portainer**: Docker Management
-- **Netdata**: System-Metriken
-- **MQTT Explorer**: MQTT Broker Verwaltung
+**Spiele & Unterhaltung:**
+- **Chess**: Schachspiel mit Online-Multiplayer
+- **Tetris**: Klassisches Tetris-Game
+- **Sudoku**: Sudoku-Rätsel mit Hover-Rotations-Animation
+
+**System & Infrastruktur:**
+- **Glances/BTOP**: System-Monitoring und Ressourcen-Überwachung
+- **Portainer**: Docker Container Management
+- **Netdata**: Detaillierte System-Metriken und Monitoring
+- **GoAccess**: Website-Traffic Analytics und Log-Analyse
+
+**Netzwerk & Verwaltung:**
+- **MQTT Explorer**: MQTT Broker und Message Management
+- **NPM (Nginx Proxy Manager)**: Reverse Proxy und SSL-Zertifikat Management
+- **Video-Konferenz**: Jitsi-basierte Video-Konferenz-Lösung
+
+**Informationen & Daten:**
 - **News**: Nachrichten-Aggregator
-- **NPM**: Nginx Proxy Manager
-- **Commodities**: Rohstoffpreise
-- **Video-Konferenz**: Video-Konferenzen
-- **GoAccess**: Website-Analytics
-- **PDF Reorder**: PDF-Verarbeitung
-- **Weather/Wetterarchive**: Wetterdaten & Historie
+- **Wetter**: Wettervorhersage und aktuelle Wetterdaten
+- **Wetter Archive**: Historische Wetterdaten und Statistiken
+- **Commodities**: Rohstoffpreise und Marktdaten
+- **IQ Statistik**: Internationale Intelligenzstatistiken
+
+**Dateiverarbeitung:**
+- **PDF Reorder**: PDF-Seiten-Reordering und -Verarbeitung
+- **Home Server**: Zentrale Home-Automation und Server-Management
 
 ## Technische Eigenschaften
 
@@ -133,6 +149,100 @@ Die App läuft als statische HTML-Datei und kann einfach auf einem Webserver ber
 # Datei: /root/docker-stacks/apache/html/index.html
 # Wird über Apache/Nginx auf http://localhost oder gehosteter Domain serviert
 ```
+
+### Setup-Anleitung
+
+#### Anforderungen
+
+- Apache oder Nginx Webserver
+- Moderner Browser mit ES6+ JavaScript-Unterstützung
+- Internetverbindung für externe APIs (Open-Meteo, Feratel, Roundshot)
+- Optional: Docker (für Container-Deployment)
+
+#### Schritt 1: Datei-Platzierung
+
+```bash
+# Kopiere index.html in das Webserver-Verzeichnis
+cp /root/docker-stacks/apache/html/index.html /var/www/html/
+```
+
+#### Schritt 2: Webserver-Konfiguration (Apache)
+
+```bash
+# Stelle sicher, dass Apache HTML-Dateien serve kann
+# Standardmäßig sollte das bereits der Fall sein
+
+# Bei Bedarf: .htaccess für Caching (optional)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+```
+
+#### Schritt 3: Webserver starten
+
+```bash
+# Apache starten
+sudo systemctl start apache2
+
+# Oder Docker-Container starten
+docker-compose up -d
+```
+
+#### Schritt 4: Zugriff
+
+Öffne deinen Browser und navigiere zu:
+- Lokal: `http://localhost`
+- Remote: `http://bekerh.ddns.net` oder konfigurierte Domain
+
+### Konfiguration
+
+Die App funktioniert mit Standardeinstellungen out-of-the-box. Falls Anpassungen nötig sind:
+
+**Wetter-Lokation ändern** (in index.html):
+```javascript
+// Zeile ~1107-1108
+const rebsteinLat = 47.4167;  // Breitengrad
+const rebsteinLon = 9.3167;   // Längengrad
+```
+
+**Theme-Farben anpassen**:
+Bearbeite die CSS-Variablen im `<style>`-Tag (Zeilen ~15-61):
+```css
+:root {
+    --bg-gradient-1: #f0f8fc;  /* Beispiel: Hintergrundfarbe */
+    --header-color: #006699;   /* Kopfzeilen-Farbe */
+    --accent-color: #0099cc;   /* Akzentfarbe */
+}
+```
+
+**Services hinzufügen/entfernen**:
+Bearbeite die Service-Links im `<div class="grid">` Bereich (Zeilen ~591-1040) der index.html
+
+### Performance-Optimierung
+
+- **Wetter-Aktualisierungsintervall**: 600000ms (10 Minuten) - anpassbar in Zeile ~1256
+- **Browser-Caching**: Nutze .htaccess oder Webserver-Header
+- **CDN**: Externe Resources (Font Awesome) werden vom CDN geladen
+
+### Troubleshooting
+
+**Wetterdaten werden nicht angezeigt:**
+- Überprüfe Browser-Konsole (F12) auf Fehler
+- Stelle sicher, dass die Open-Meteo API erreichbar ist
+- Prüfe ob CORS-Fehler vorliegen (sollte nicht der Fall sein mit Open-Meteo)
+
+**Webcams zeigen schwarzen Bildschirm:**
+- Überprüfe Internetverbindung
+- Stelle sicher, dass Feratel und Roundshot erreichbar sind
+- Probiere Browser zu aktualisieren (Strg+F5)
+
+**Dunkles Theme wird nicht gespeichert:**
+- Überprüfe ob LocalStorage im Browser aktiviert ist
+- Für Private-Browsing Mode: Theme wird nur in der Sitzung gespeichert
 
 ## Zukünftige Erweiterungen
 
