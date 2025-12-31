@@ -91,13 +91,13 @@
             left: 0;
             width: 200%;
             height: 45%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><defs><linearGradient id="wave-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(150,230,255,0.6)"/><stop offset="15%25" style="stop-color:rgba(140,220,255,0.5)"/><stop offset="35%25" style="stop-color:rgba(100,200,255,0.35)"/><stop offset="65%25" style="stop-color:rgba(70,170,240,0.15)"/><stop offset="100%25" style="stop-color:rgba(40,120,200,0.02)"/></linearGradient><linearGradient id="foam-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(220,245,255,0.7)"/><stop offset="50%25" style="stop-color:rgba(200,240,255,0.3)"/><stop offset="100%25" style="stop-color:rgba(180,230,255,0.05)"/></linearGradient></defs><path d="M0,140 C120,90 180,110 280,100 C380,90 440,130 560,140 C680,150 740,100 860,110 C980,120 1040,145 1160,140 C1280,135 1340,110 1460,120 C1580,130 1640,150 1760,140 C1880,130 1920,145 1920,150 L1920,320 C1880,325 1800,330 1680,325 C1560,320 1440,310 1320,318 C1200,326 1080,330 960,325 C840,320 720,315 600,322 C480,329 360,330 240,320 C120,310 60,315 0,320 Z" fill="url(%23wave-grad)" opacity="0.9"/><path d="M0,160 C140,130 200,155 330,160 C460,165 520,140 680,150 C840,160 900,135 1060,145 C1220,155 1280,165 1440,160 C1600,155 1660,140 1820,150 C1890,155 1920,160 1920,165 L1920,420 C1820,415 1700,410 1580,415 C1460,420 1340,425 1220,420 C1100,415 980,410 860,418 C740,426 620,425 500,418 C380,411 260,410 140,415 C70,418 0,420 0,420 Z" fill="url(%23foam-grad)" opacity="0.7"/><path d="M0,220 C100,200 160,220 300,225 C440,230 500,210 660,218 C820,226 880,235 1040,220 C1200,205 1260,215 1420,222 C1580,229 1640,235 1800,220 C1860,215 1920,225 1920,230 L1920,600 L0,600 Z" fill="rgba(100,200,255,0.25)" opacity="0.5"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><defs><linearGradient id="wave-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(150,230,255,0.6)"/><stop offset="15%25" style="stop-color:rgba(140,220,255,0.5)"/><stop offset="35%25" style="stop-color:rgba(100,200,255,0.35)"/><stop offset="65%25" style="stop-color:rgba(70,170,240,0.15)"/><stop offset="100%25" style="stop-color:rgba(40,120,200,0.02)"/></linearGradient><linearGradient id="foam-grad" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(220,245,255,0.7)"/><stop offset="50%25" style="stop-color:rgba(200,240,255,0.3)"/><stop offset="100%25" style="stop-color:rgba(180,230,255,0.05)"/></linearGradient></defs><path d="M0,140 C200,90 300,110 400,100 C500,90 580,130 700,140 C820,150 900,100 1000,110 C1100,120 1180,145 1300,140 C1420,135 1500,110 1600,120 C1700,130 1800,150 C1920,220 1800,310 1680,325 C1560,320 1440,310 1320,318 C1200,326 1080,330 960,325 C840,320 720,315 600,322 C480,329 360,330 240,320 C120,310 60,315 0,320 Z" fill="url(%23wave-grad)" opacity="0.9"/><path d="M0,160 C140,130 200,155 330,160 C460,165 520,140 680,150 C840,160 900,135 1060,145 C1220,155 1280,165 1440,160 C1600,155 1660,140 1820,150 C1890,155 1920,160 1920,165 L1920,420 C1820,415 1700,410 1580,415 C1460,420 1340,425 1220,420 C1100,415 980,410 860,418 C740,426 620,425 500,418 C380,411 260,410 140,415 C70,418 0,420 0,420 Z" fill="url(%23foam-grad)" opacity="0.7"/><path d="M0,220 C100,200 160,220 300,225 C440,230 500,210 660,218 C820,226 880,235 1040,220 C1200,205 1260,215 1420,222 C1580,229 1640,235 1800,220 C1860,215 1920,225 1920,230 L1920,600 L0,600 Z" fill="rgba(100,200,255,0.25)" opacity="0.5"/></svg>');
             background-size: 50% 100%;
             background-repeat: repeat-x;
             background-position: 0 bottom;
             pointer-events: none;
             z-index: 1;
-            animation: wave-motion 9s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+            animation: wave-motion 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
         }
 
         body::after {
@@ -107,13 +107,13 @@
             left: 0;
             width: 200%;
             height: 40%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 500"><defs><linearGradient id="wave-grad2" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(120,210,245,0.5)"/><stop offset="20%25" style="stop-color:rgba(100,190,240,0.4)"/><stop offset="50%25" style="stop-color:rgba(70,160,220,0.25)"/><stop offset="85%25" style="stop-color:rgba(50,130,200,0.1)"/><stop offset="100%25" style="stop-color:rgba(30,100,180,0.03)"/></linearGradient><linearGradient id="deep-wave" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(80,180,230,0.35)"/><stop offset="100%25" style="stop-color:rgba(40,130,190,0.08)"/></linearGradient></defs><path d="M0,95 C110,60 170,85 290,100 C410,115 480,85 620,95 C760,105 820,120 960,100 C1100,80 1160,95 1300,105 C1440,115 1500,90 1640,100 C1780,110 1840,120 1920,100 L1920,350 C1840,335 1760,320 1640,330 C1520,340 1400,345 1280,340 C1160,335 1040,330 920,338 C800,346 680,345 560,340 C440,335 320,335 200,338 C100,340 20,345 0,350 Z" fill="url(%23wave-grad2)" opacity="0.85"/><path d="M0,180 C80,155 140,175 280,190 C420,205 500,175 680,185 C860,195 920,210 1080,190 C1240,170 1300,185 1460,195 C1620,205 1680,215 1840,190 C1880,185 1920,190 1920,195 L1920,500 L0,500 Z" fill="url(%23deep-wave)" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 500"><defs><linearGradient id="wave-grad2" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(120,210,245,0.5)"/><stop offset="20%25" style="stop-color:rgba(100,190,240,0.4)"/><stop offset="50%25" style="stop-color:rgba(70,160,220,0.25)"/><stop offset="85%25" style="stop-color:rgba(50,130,200,0.1)"/><stop offset="100%25" style="stop-color:rgba(30,100,180,0.03)"/></linearGradient><linearGradient id="deep-wave" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(80,180,230,0.35)"/><stop offset="100%25" style="stop-color:rgba(40,130,190,0.08)"/></linearGradient></defs><path d="M0,95 C110,60 170,85 290,100 C410,115 480,85 620,95 C760,105 820,120 960,100 C1100,80 1160,95 1300,105 C1440,115 1500,90 1640,100 C1920,270 1800,320 1640,330 C1520,340 1400,345 1280,340 C1160,335 1040,330 920,338 C800,346 680,345 560,340 C440,335 320,335 200,338 C100,340 20,345 0,350 Z" fill="url(%23wave-grad2)" opacity="0.85"/><path d="M0,180 C80,155 140,175 280,190 C420,205 500,175 680,185 C860,195 920,210 1080,190 C1240,170 1300,185 1460,195 C1620,205 1680,215 1840,190 C1880,185 1920,190 1920,195 L1920,500 L0,500 Z" fill="url(%23deep-wave)" opacity="0.6"/></svg>');
             background-size: 48% 100%;
             background-repeat: repeat-x;
             background-position: 0 bottom;
             pointer-events: none;
             z-index: 0;
-            animation: wave-motion-reverse 11s cubic-bezier(0.45, 0.0, 0.25, 1) infinite;
+            animation: wave-motion-reverse 7s cubic-bezier(0.45, 0.0, 0.25, 1) infinite;
         }
 
         .container::before {
@@ -123,13 +123,13 @@
             left: 0;
             width: 200%;
             height: 35%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400"><defs><linearGradient id="wave-grad3" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(100,200,240,0.45)"/><stop offset="30%25" style="stop-color:rgba(80,180,230,0.3)"/><stop offset="70%25" style="stop-color:rgba(60,150,210,0.15)"/><stop offset="100%25" style="stop-color:rgba(40,120,190,0.05)"/></linearGradient><linearGradient id="shimmer" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(150,230,255,0.25)"/><stop offset="100%25" style="stop-color:rgba(100,200,240,0.05)"/></linearGradient></defs><path d="M0,75 C90,50 140,70 260,80 C380,90 450,65 600,75 C750,85 800,95 960,75 C1120,55 1180,70 1320,80 C1460,90 1520,100 1680,75 C1800,60 1860,75 1920,80 L1920,240 C1860,235 1800,230 1680,235 C1560,240 1440,240 1320,238 C1200,236 1080,235 960,240 C840,245 720,245 600,240 C480,235 360,235 240,238 C120,241 40,245 0,245 Z" fill="url(%23wave-grad3)" opacity="0.8"/><path d="M0,150 C70,130 120,150 240,160 C360,170 430,150 580,160 C730,170 780,180 940,160 C1100,140 1160,155 1300,165 C1440,175 1500,180 1660,160 C1780,150 1860,160 1920,165 L1920,400 L0,400 Z" fill="url(%23shimmer)" opacity="0.5"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400"><defs><linearGradient id="wave-grad3" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(100,200,240,0.45)"/><stop offset="30%25" style="stop-color:rgba(80,180,230,0.3)"/><stop offset="70%25" style="stop-color:rgba(60,150,210,0.15)"/><stop offset="100%25" style="stop-color:rgba(40,120,190,0.05)"/></linearGradient><linearGradient id="shimmer" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(150,230,255,0.25)"/><stop offset="100%25" style="stop-color:rgba(100,200,240,0.05)"/></linearGradient></defs><path d="M0,75 C90,50 140,70 260,80 C380,90 450,65 600,75 C750,85 800,95 960,75 C1120,55 1180,70 1320,80 C1460,90 1520,100 C1920,180 1800,220 1680,235 C1560,240 1440,240 1320,238 C1200,236 1080,235 960,240 C840,245 720,245 600,240 C480,235 360,235 240,238 C120,241 40,245 0,245 Z" fill="url(%23wave-grad3)" opacity="0.8"/><path d="M0,150 C70,130 120,150 240,160 C360,170 430,150 580,160 C730,170 780,180 940,160 C1100,140 1160,155 1300,165 C1440,175 1500,180 1660,160 C1780,150 1860,160 1920,165 L1920,400 L0,400 Z" fill="url(%23shimmer)" opacity="0.5"/></svg>');
             background-size: 46% 100%;
             background-repeat: repeat-x;
             background-position: 0 bottom;
             pointer-events: none;
             z-index: -1;
-            animation: wave-motion-fast 6.5s cubic-bezier(0.35, 0.0, 0.3, 1) infinite;
+            animation: wave-motion-fast 4s cubic-bezier(0.35, 0.0, 0.3, 1) infinite;
         }
 
         .container {
@@ -208,85 +208,43 @@
         }
 
         .card {
-            background: linear-gradient(135deg,
-                rgba(180, 140, 100, 0.95) 0%,
-                rgba(150, 110, 70, 0.95) 50%,
-                rgba(120, 85, 50, 0.95) 100%);
-            border: 2px solid rgba(220, 180, 140, 0.4);
-            border-radius: 8px;
-            padding: 10px;
-            transition: all 0.3s ease;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, rgba(230,240,255,0.7) 50%, rgba(180,220,255,0.6) 100%); /* White/light blue ethereal gradient */
+            border: none; /* No explicit border needed with clip-path and shadow */
+            padding: 3px; /* Consistent padding */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
             cursor: pointer;
             text-decoration: none;
-            color: #2a1810;
+            color: var(--text-color); /* Use theme text color */
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             width: 100%;
             max-width: 130px;
-            animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
-            animation-delay: calc(var(--card-index) * 0.25s);
-            box-shadow:
-                inset 0 0 30px rgba(255, 255, 255, 0.2),
-                inset 20px 20px 40px rgba(100, 70, 40, 0.3),
-                0 4px 15px rgba(60, 40, 20, 0.4);
+            /* Subtle shadow, more diffuse */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); 
             position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 8%;
-            width: 35%;
-            height: 35%;
-            background: radial-gradient(circle,
-                rgba(255, 240, 220, 0.6) 0%,
-                transparent 70%);
-            border-radius: 50%;
-            filter: blur(10px);
-            pointer-events: none;
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                repeating-linear-gradient(85deg,
-                    transparent,
-                    transparent 8px,
-                    rgba(60, 40, 20, 0.15) 8px,
-                    rgba(60, 40, 20, 0.15) 12px),
-                repeating-linear-gradient(90deg,
-                    transparent,
-                    transparent 15px,
-                    rgba(100, 70, 40, 0.1) 15px,
-                    rgba(100, 70, 40, 0.1) 18px),
-                repeating-linear-gradient(95deg,
-                    transparent,
-                    transparent 20px,
-                    rgba(255, 255, 255, 0.05) 20px,
-                    rgba(255, 255, 255, 0.05) 22px);
-            pointer-events: none;
+            overflow: hidden; /* Crucial for clip-path to work correctly */
+            animation: cardFloat 10s ease-in-out infinite; /* Increased duration for slow movement */
+            animation-delay: calc(var(--card-index) * 0.1s);
         }
 
         .card:hover {
-            background: linear-gradient(135deg,
-                rgba(200, 160, 120, 1) 0%,
-                rgba(170, 130, 90, 1) 50%,
-                rgba(140, 105, 70, 1) 100%);
-            border-color: rgba(240, 200, 160, 0.6);
-            transform: translateY(-2px);
-            box-shadow:
-                inset 0 0 40px rgba(255, 250, 240, 0.3),
-                inset 20px 20px 40px rgba(120, 85, 50, 0.3),
-                0 8px 25px rgba(60, 40, 20, 0.5);
+            /* Hover effect that slightly increases elevation */
+            transform: translateY(-4px) scale(1.02); /* Slight upward movement and scale */
+            /* Increased shadow for elevation */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); 
+            /* Dark grey background on hover */
+            background: radial-gradient(ellipse at center, rgba(60,60,60,0.8) 0%, rgba(80,80,80,0.7) 50%, rgba(100,100,100,0.6) 100%);
+        }
+
+        /* Styling for the link name */
+        .card-title {
+            color: #E68A00; /* Dark Orange */
+            font-weight: 600; /* Inherited from original */
+            font-size: 0.9em; /* Inherited from original */
+            margin-bottom: 3px; /* Inherited from original */
+            word-break: break-word; /* Inherited from original */
         }
 
         .icon {
@@ -328,7 +286,7 @@
 
         .card-domain {
             font-size: 0.75em;
-            color: var(--accent-color);
+            color: #0047AB; /* Dark Blue */
             font-weight: 500;
         }
 
@@ -347,40 +305,36 @@
             margin-right: 4px;
         }
 
-        @keyframes cardWave {
+        @keyframes cardFloat {
             0% {
                 transform: translateY(0);
                 opacity: 0.95;
             }
-            12.5% {
-                transform: translateY(-8px);
+            15% { /* Slightly altered timing for smoother undulation */
+                transform: translateY(-6px);
                 opacity: 0.97;
             }
-            25% {
-                transform: translateY(-16px);
+            30% {
+                transform: translateY(-12px);
                 opacity: 0.98;
             }
-            37.5% {
-                transform: translateY(-22px);
+            45% {
+                transform: translateY(-18px);
                 opacity: 0.99;
             }
-            50% {
-                transform: translateY(-26px);
+            60% { /* Peak of the float */
+                transform: translateY(-22px);
                 opacity: 1;
             }
-            62.5% {
-                transform: translateY(-22px);
+            75% {
+                transform: translateY(-18px);
                 opacity: 0.99;
             }
-            75% {
-                transform: translateY(-16px);
+            90% {
+                transform: translateY(-12px);
                 opacity: 0.98;
             }
-            87.5% {
-                transform: translateY(-8px);
-                opacity: 0.97;
-            }
-            100% {
+            100% { /* Return to start */
                 transform: translateY(0);
                 opacity: 0.95;
             }
@@ -410,6 +364,24 @@
             }
             100% {
                 background-position: 80px bottom;
+            }
+        }
+
+        @keyframes cardWave {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-8px) rotate(-1deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
             }
         }
 
@@ -579,9 +551,43 @@
     </style>
 </head>
 <body >
+    <!-- SVG Cloud Clip Paths -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <!-- Cloud Shape 1: Classic round cumulus with 3 large bumps -->
+            <clipPath id="cloud1" clipPathUnits="objectBoundingBox">
+                <path d="M 0.15,0.35 C 0.05,0.25 0.02,0.15 0.08,0.12 C 0.15,0.08 0.25,0.2 0.28,0.15 C 0.32,0.08 0.35,0.02 0.42,0.05 C 0.48,0.08 0.5,0.18 0.55,0.12 C 0.6,0.05 0.65,0 0.72,0.03 C 0.78,0.06 0.8,0.15 0.85,0.2 C 0.92,0.28 0.98,0.35 0.95,0.45 C 0.92,0.52 0.88,0.6 0.92,0.68 C 0.96,0.78 1,0.88 0.92,0.92 C 0.82,0.97 0.7,0.88 0.6,0.9 C 0.5,0.92 0.45,1 0.35,0.98 C 0.25,0.96 0.22,0.88 0.15,0.85 C 0.05,0.82 0,0.88 0.02,0.75 C 0.04,0.62 0.08,0.5 0.15,0.35 Z"/>
+            </clipPath>
+
+            <!-- Cloud Shape 2: Wide stretched horizontal cloud (stratus-like) - TALLER -->
+            <clipPath id="cloud2" clipPathUnits="objectBoundingBox">
+                <path d="M 0.1,0.35 C 0.02,0.3 0,0.22 0.05,0.18 C 0.12,0.12 0.2,0.22 0.3,0.15 C 0.38,0.1 0.45,0.05 0.52,0.12 C 0.58,0.18 0.6,0.28 0.68,0.2 C 0.75,0.12 0.82,0.1 0.88,0.16 C 0.95,0.22 0.98,0.3 0.98,0.4 C 0.98,0.5 0.92,0.6 0.88,0.7 C 0.82,0.75 0.75,0.7 0.68,0.75 C 0.6,0.8 0.58,0.9 0.5,0.92 C 0.42,0.92 0.38,0.82 0.3,0.82 C 0.22,0.82 0.18,0.88 0.12,0.82 C 0.05,0.75 0.08,0.62 0.05,0.52 C 0.02,0.45 0.05,0.4 0.1,0.35 Z"/>
+            </clipPath>
+
+            <!-- Cloud Shape 3: Tall vertical cloud with asymmetric bumps -->
+            <clipPath id="cloud3" clipPathUnits="objectBoundingBox">
+                <path d="M 0.35,0.08 C 0.32,0.02 0.38,0 0.45,0.02 C 0.52,0.05 0.55,0.12 0.6,0.1 C 0.68,0.06 0.75,0.08 0.78,0.15 C 0.82,0.22 0.78,0.3 0.82,0.38 C 0.88,0.45 0.95,0.48 0.95,0.58 C 0.95,0.68 0.88,0.75 0.85,0.82 C 0.82,0.88 0.85,0.92 0.78,0.95 C 0.7,0.98 0.6,0.92 0.52,0.95 C 0.45,0.98 0.42,1 0.35,0.98 C 0.28,0.96 0.25,0.9 0.22,0.82 C 0.18,0.75 0.22,0.68 0.18,0.6 C 0.12,0.52 0.05,0.48 0.08,0.38 C 0.12,0.28 0.2,0.25 0.25,0.18 C 0.3,0.12 0.32,0.1 0.35,0.08 Z"/>
+            </clipPath>
+
+            <!-- Cloud Shape 4: Small compact round cloud with 2 bumps -->
+            <clipPath id="cloud4" clipPathUnits="objectBoundingBox">
+                <path d="M 0.25,0.25 C 0.18,0.2 0.15,0.15 0.2,0.12 C 0.28,0.08 0.35,0.15 0.42,0.12 C 0.5,0.08 0.58,0.1 0.65,0.15 C 0.72,0.2 0.75,0.28 0.78,0.35 C 0.82,0.45 0.85,0.55 0.78,0.62 C 0.7,0.7 0.58,0.68 0.5,0.72 C 0.42,0.75 0.38,0.82 0.3,0.8 C 0.22,0.78 0.18,0.7 0.15,0.62 C 0.12,0.52 0.15,0.42 0.18,0.35 C 0.22,0.3 0.22,0.28 0.25,0.25 Z"/>
+            </clipPath>
+
+            <!-- Cloud Shape 5: Irregular cloud with 5 bumps (complex) -->
+            <clipPath id="cloud5" clipPathUnits="objectBoundingBox">
+                <path d="M 0.12,0.4 C 0.08,0.32 0.05,0.25 0.1,0.2 C 0.15,0.15 0.22,0.2 0.28,0.15 C 0.32,0.12 0.35,0.08 0.4,0.1 C 0.45,0.12 0.48,0.18 0.52,0.15 C 0.58,0.1 0.62,0.05 0.68,0.08 C 0.72,0.1 0.75,0.15 0.78,0.2 C 0.82,0.25 0.85,0.28 0.88,0.32 C 0.92,0.38 0.95,0.45 0.95,0.52 C 0.95,0.6 0.92,0.68 0.88,0.72 C 0.85,0.75 0.82,0.78 0.78,0.82 C 0.72,0.88 0.68,0.92 0.6,0.92 C 0.52,0.92 0.48,0.88 0.42,0.88 C 0.35,0.88 0.3,0.92 0.25,0.9 C 0.18,0.88 0.15,0.82 0.12,0.75 C 0.08,0.68 0.1,0.6 0.08,0.52 C 0.05,0.48 0.08,0.45 0.12,0.4 Z"/>
+            </clipPath>
+
+            <!-- Cloud Shape 6: Wide elongated cloud with one large bump - TALLER -->
+            <clipPath id="cloud6" clipPathUnits="objectBoundingBox">
+                <path d="M 0.08,0.4 C 0.05,0.32 0.02,0.25 0.05,0.18 C 0.1,0.12 0.18,0.15 0.25,0.1 C 0.32,0.06 0.38,0.02 0.45,0.06 C 0.52,0.1 0.55,0.2 0.62,0.12 C 0.68,0.05 0.72,0 0.78,0.04 C 0.85,0.08 0.88,0.18 0.92,0.28 C 0.96,0.38 0.98,0.48 0.98,0.58 C 0.98,0.68 0.95,0.78 0.9,0.82 C 0.85,0.88 0.78,0.85 0.72,0.88 C 0.65,0.92 0.6,0.95 0.52,0.95 C 0.45,0.95 0.4,0.92 0.32,0.92 C 0.25,0.92 0.2,0.95 0.15,0.92 C 0.1,0.88 0.08,0.78 0.06,0.68 C 0.04,0.58 0.05,0.48 0.08,0.4 Z"/>
+            </clipPath>
+        </defs>
+    </svg>
     <div class="container">
         <div class="header">
-            <h1><img src="/favicon.svg" alt="Favicon" style="width: 2.2em; height: 2.2em; vertical-align: middle; margin-right: 8px;"> Verfügbare Dienste in Bekers Welt</h1>
+            <h1><img src="/favicon.svg" alt="Favicon" style="width: 2.2em; height: 2.2em; vertical-align: middle; margin-right: 8px;"> Verfügbare Dienste in Bekers Wolke</h1>
             <div class="header-controls">
                 <input type="text" class="search-box" id="searchInput" placeholder="Search Host...">
                 <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
@@ -591,7 +597,7 @@
         <div class="grid" id="grid">
             
             <!-- Jitsi Video Conference -->
-            <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0" target="_blank">
+            <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);" target="_blank">
                 <div class="icon video">
                     <img src="/vc.png" alt="Video-Konferenz Icon" style="width: 65px; height: 65px; object-fit: contain;">
                 </div>
@@ -601,7 +607,7 @@
             </a>
 
             <!-- Home Server -->
-            <a href="http://cc.beker.club" class="card" style="--card-index: 1" target="_blank">
+            <a href="http://cc.beker.club" class="card" style="--card-index: 1; clip-path: url(#cloud2);" target="_blank">
                 <div class="icon homeserver">🏠</div>
                 <div class="card-title">Home Server</div>
                 <div class="card-domain">cc.beker.club</div>
@@ -609,7 +615,7 @@
             </a>
 
             <!-- News -->
-            <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 2" target="_blank">
+            <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 2; clip-path: url(#cloud3);" target="_blank">
                 <div class="icon news">📰</div>
                 <div class="card-title">News</div>
                 <div class="card-domain">news.bekerh.ddns.net</div>
@@ -617,7 +623,7 @@
             </a>
 
             <!-- Wetter -->
-            <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 3" target="_blank">
+            <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 3; clip-path: url(#cloud4);" target="_blank">
                 <div class="icon weather">🌤️</div>
                 <div class="card-title">Wetter</div>
                 <div class="card-domain">wetter.bekerh.ddns.net</div>
@@ -625,7 +631,7 @@
             </a>
 
             <!-- Wetter Archive -->
-            <a href="http://wetter.beker.club" class="card" style="--card-index: 4" target="_blank">
+            <a href="http://wetter.beker.club" class="card" style="--card-index: 4; clip-path: url(#cloud5);" target="_blank">
                 <div class="icon weather">📊</div>
                 <div class="card-title">Wetter Archive</div>
                 <div class="card-domain">wetter.beker.club</div>
@@ -633,7 +639,7 @@
             </a>
 
             <!-- GoAccess -->
-            <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 5" target="_blank">
+            <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 5; clip-path: url(#cloud6);" target="_blank">
                 <div class="icon goaccess">
                     <img src="https://r4ven.fr/images-illustration/cover-goaccess.webp" alt="GoAccess Icon" style="width: 50px; height: 50px;">
                 </div>
@@ -643,7 +649,7 @@
             </a>
 
             <!-- Chess -->
-            <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 6" target="_blank">
+            <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 6; clip-path: url(#cloud1);" target="_blank">
                 <div class="icon chess">
                     <img src="https://cdn-icons-png.freepik.com/256/3655/3655055.png?semt=ais_white_label" alt="Chess Icon" style="width: 60%; height: 60%; object-fit: contain;">
                 </div>
@@ -653,7 +659,7 @@
             </a>
 
             <!-- Tetris -->
-            <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 7" target="_blank">
+            <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 7; clip-path: url(#cloud2);" target="_blank">
                 <div class="icon commodity">
                     <img src="https://cdn.dribbble.com/userupload/21188001/file/original-73cd4c1ab2602df11b0dccc6feb8739a.jpg?resize=752x&vertical=center" alt="Tetris Icon" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
@@ -663,7 +669,7 @@
             </a>
 
             <!-- Sudoku -->
-            <a href="https://sudoku.bekerh.ddns.net" class="card" style="--card-index: 8" target="_blank">
+            <a href="https://sudoku.bekerh.ddns.net" class="card" style="--card-index: 8; clip-path: url(#cloud3);" target="_blank">
                 <div class="icon sudoku sudoku-rotated">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <defs>
@@ -736,7 +742,7 @@
             </a>
 
             <!-- Netdata -->
-            <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 9" target="_blank">
+            <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 9; clip-path: url(#cloud4);" target="_blank">
                 <div class="icon monitor">
                     <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 50px;">
                         <!-- Monitor frame -->
@@ -780,7 +786,7 @@
             <!-- Existing cards that were not in the user's list -->
             
             <!-- Glances -->
-            <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 10" target="_blank">
+            <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 10; clip-path: url(#cloud5);" target="_blank">
                 <div class="icon glance">
                     <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" style="width: 65px; height: 35px;">
                         <!-- BTOP Text -->
@@ -796,7 +802,7 @@
             </a>
 
             <!-- Portainer -->
-            <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 11" target="_blank">
+            <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 11; clip-path: url(#cloud6);" target="_blank">
                 <div class="icon docker">🐋</div>
                 <div class="card-title">Portainer</div>
                 <div class="card-domain">docker.bekerh.ddns.net</div>
@@ -804,7 +810,7 @@
             </a>
 
             <!-- MQTT Explorer -->
-            <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 12" target="_blank">
+            <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 12; clip-path: url(#cloud1);" target="_blank">
                 <div class="icon mqtt">
                     <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 40px;">
                         <path d="M 15 35 Q 15 20 25 20 Q 30 10 42 10 Q 55 10 58 22 Q 70 22 70 35 Q 70 48 58 48 Q 25 48 15 35 Z" fill="#5ba3d0" stroke="none"/>
@@ -819,7 +825,7 @@
             </a>
 
             <!-- NPM -->
-            <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 13" target="_blank">
+            <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 13; clip-path: url(#cloud2);" target="_blank">
                 <div class="icon npm">
                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <defs>
@@ -850,7 +856,7 @@
             </a>
 
             <!-- Commodities -->
-            <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 14" target="_blank">
+            <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 14; clip-path: url(#cloud3);" target="_blank">
                 <div class="icon commodity">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <!-- Ölfass/Barrel links -->
@@ -899,7 +905,7 @@
             </a>
 
             <!-- PDF Reorder -->
-            <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 15" target="_blank">
+            <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 15; clip-path: url(#cloud4);" target="_blank">
                 <div class="icon">
                     <i class="fa-solid fa-sort" style="font-size: 1.8em; margin-bottom: 6px;"></i>
                 </div>
@@ -909,7 +915,7 @@
             </a>
 
             <!-- Covid Hoax -->
-            <a href="https://github.com/HelmutQualtinger/Sterbetafeln/blob/5years/README.md" class="card" style="--card-index: 16" target="_blank">
+            <a href="https://github.com/HelmutQualtinger/Sterbetafeln/blob/5years/README.md" class="card" style="--card-index: 16; clip-path: url(#cloud5);" target="_blank">
                 <div class="icon covid">
                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
                         <defs>
@@ -977,7 +983,7 @@
             </a>
 
             <!-- IQ -->
-            <a href="https://qualcuno.info/Statistik/" class="card" style="--card-index: 17" target="_blank">
+            <a href="https://qualcuno.info/Statistik/" class="card" style="--card-index: 17; clip-path: url(#cloud6);" target="_blank">
                 <div class="icon statistik">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
                         <!-- Ocean background -->
