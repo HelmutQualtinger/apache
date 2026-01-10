@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -570,6 +571,74 @@
             min-height: 400px;
         }
 
+        .news-frame {
+            order: 2;
+        }
+
+        .communication-frame {
+            order: 1;
+        }
+
+        .games-frame {
+            order: 3;
+        }
+
+        .science-frame {
+            order: 4;
+        }
+
+        .server-frame {
+            order: 5;
+        }
+
+        .tools-frame {
+            order: 6;
+        }
+
+        .news-frame,
+        .communication-frame,
+        .games-frame,
+        .science-frame,
+        .server-frame,
+        .tools-frame {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 150, 200, 0.1);
+            margin-bottom: 0;
+        }
+
+        .frame-title {
+            font-size: 1.3em;
+            color: var(--header-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .frame-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .frame-grid .card {
+            max-width: 130px;
+        }
+
+        .frames-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .frames-container > div {
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 20px 10px;
@@ -681,515 +750,569 @@
 
         <div class="grid" id="grid">
 
-            <!-- Jitsi Video Conference -->
-            <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
-                target="_blank">
-                <div class="icon video">
-                    <img src="/vc.png" alt="Video-Konferenz Icon"
-                        style="width: 65px; height: 65px; object-fit: contain;">
-                </div>
-                <div class="card-title">Jitsi Video Conference</div>
-                <div class="card-domain">vc.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
 
-            <!-- Home Server -->
-            <a href="http://cc.beker.club" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
-                target="_blank">
-                <div class="icon homeserver">🏠</div>
-                <div class="card-title">Home Server</div>
-                <div class="card-domain">cc.beker.club</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+        </div>
 
-            <!-- Shell Cloud Control -->
-            <a href="https://control.shelly.cloud/#/home/room/1/devices" class="card" style="--card-index: 2; clip-path: url(#cloud3);" target="_blank">
-                <div class="icon weather">
-                    <img src="https://play-lh.googleusercontent.com/-PWymr6kfwiVRSBOg5Gx0Rd0ugZEv-qSbF9k8t6nmdcocnXfZV8wpzx44jE-zhIHPYQ=w480-h960-rw" alt="Shelly Logo" style="width: 65px; height: 65px; object-fit: contain;">
-                </div>
-                <div class="card-title">Shell Cloud Control</div>
-                <div class="card-domain">control.shelly.cloud</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
-            <!-- News -->
-            <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
-                target="_blank">
-                <div class="icon news">
-                    <img src="https://t4.ftcdn.net/jpg/06/50/17/81/240_F_650178114_WCvMncO2Hhq6qhs2iiwq3i89n7NUlItn.jpg" alt="News Logo" style="width: 65px; height: 65px; object-fit: contain;">
-                </div>
-                <div class="card-title">News</div>
-                <div class="card-domain">news.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+        <div class="frames-container">
+        <div class="news-frame">
+            <div class="frame-title">📰 Nachrichten</div>
+            <div class="frame-grid">
+                <!-- News -->
+                <a href="http://news.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
+                    target="_blank">
+                    <div class="icon news">
+                        <img src="https://t4.ftcdn.net/jpg/06/50/17/81/240_F_650178114_WCvMncO2Hhq6qhs2iiwq3i89n7NUlItn.jpg" alt="News Logo" style="width: 65px; height: 65px; object-fit: contain;">
+                    </div>
+                    <div class="card-title">News</div>
+                    <div class="card-domain">news.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Wetter -->
-            <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
-                target="_blank">
-                <div class="icon weather">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6485/6485580.png" alt="Weather Icon" style="width: 65px; height: 65px; object-fit: contain;">
-                </div>
-                <div class="card-title">Wetter</div>
-                <div class="card-domain">wetter.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Wetter -->
+                <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
+                    target="_blank">
+                    <div class="icon weather">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6485/6485580.png" alt="Weather Icon" style="width: 65px; height: 65px; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Wetter</div>
+                    <div class="card-domain">wetter.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Wetter Archive -->
-            <a href="http://wetter.beker.club" class="card" style="--card-index: 4; clip-path: url(#cloud5);"
-                target="_blank">
-                <div class="icon weather">📊</div>
-                <div class="card-title">Wetter Archive</div>
-                <div class="card-domain">wetter.beker.club</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Wetter Archive -->
+                <a href="http://wetter.beker.club" class="card" style="--card-index: 2; clip-path: url(#cloud3);"
+                    target="_blank">
+                    <div class="icon weather">📊</div>
+                    <div class="card-title">Wetter Archive</div>
+                    <div class="card-domain">wetter.beker.club</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- GoAccess -->
-            <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 5; clip-path: url(#cloud6);"
-                target="_blank">
-                <div class="icon goaccess">
-                    <img src="https://r4ven.fr/images-illustration/cover-goaccess.webp" alt="GoAccess Icon"
-                        style="width: 50px; height: 50px;">
-                </div>
-                <div class="card-title">GoAccess</div>
-                <div class="card-domain">al.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Krone -->
+                <a href="https://krone.bekerh.ddns.net" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
+                    target="_blank">
+                    <div class="icon">
+                        <img src="/krone.svg" alt="Krone Logo" style="width: 70px; height: 70px; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Krone</div>
+                    <div class="card-domain">krone.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+            </div>
+        </div>
 
-            <!-- Chess -->
-            <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 6; clip-path: url(#cloud1);"
-                target="_blank">
-                <div class="icon chess">
-                    <img src="https://cdn-icons-png.freepik.com/256/3655/3655055.png?semt=ais_white_label"
-                        alt="Chess Icon" style="width: 60%; height: 60%; object-fit: contain;">
-                </div>
-                <div class="card-title">Chess</div>
-                <div class="card-domain">chess.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+        <div class="communication-frame">
+            <div class="frame-title">🏠 Haushalt</div>
+            <div class="frame-grid">
+                <!-- Jitsi Video Conference -->
+                <a href="http://vc.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
+                    target="_blank">
+                    <div class="icon video">
+                        <img src="/vc.png" alt="Video-Konferenz Icon"
+                            style="width: 65px; height: 65px; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Jitsi Video Conference</div>
+                    <div class="card-domain">vc.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Tetris -->
-            <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 7; clip-path: url(#cloud2);"
-                target="_blank">
-                <div class="icon commodity">
-                    <img src="https://cdn.dribbble.com/userupload/21188001/file/original-73cd4c1ab2602df11b0dccc6feb8739a.jpg?resize=752x&vertical=center"
-                        alt="Tetris Icon" style="width: 100%; height: 100%; object-fit: contain;">
-                </div>
-                <div class="card-title">Tetris</div>
-                <div class="card-domain">tetris.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Shell Cloud Control -->
+                <a href="https://control.shelly.cloud/#/home/room/1/devices" class="card" style="--card-index: 1; clip-path: url(#cloud3);" target="_blank">
+                    <div class="icon weather">
+                        <img src="https://play-lh.googleusercontent.com/-PWymr6kfwiVRSBOg5Gx0Rd0ugZEv-qSbF9k8t6nmdcocnXfZV8wpzx44jE-zhIHPYQ=w480-h960-rw" alt="Shelly Logo" style="width: 65px; height: 65px; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Shell Cloud Control</div>
+                    <div class="card-domain">control.shelly.cloud</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Sudoku -->
-            <a href="https://sudoku.bekerh.ddns.net" class="card" style="--card-index: 8; clip-path: url(#cloud3);"
-                target="_blank">
-                <div class="icon sudoku sudoku-rotated">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
-                        <defs>
-                            <linearGradient id="sudokuGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF6B6B" />
-                                <stop offset="100%" style="stop-color:#FF4757" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFA502" />
-                                <stop offset="100%" style="stop-color:#FF7F50" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD93D" />
-                                <stop offset="100%" style="stop-color:#FFC93C" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#6BCB77" />
-                                <stop offset="100%" style="stop-color:#4D96FF" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#4D96FF" />
-                                <stop offset="100%" style="stop-color:#9D84B7" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF10F0" />
-                                <stop offset="100%" style="stop-color:#FF6B9D" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#A8E6CF" />
-                                <stop offset="100%" style="stop-color:#56AB91" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFB6C1" />
-                                <stop offset="100%" style="stop-color:#FF69B4" />
-                            </linearGradient>
-                            <linearGradient id="sudokuGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#87CEEB" />
-                                <stop offset="100%" style="stop-color:#4169E1" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Outer border -->
-                        <rect x="5" y="5" width="90" height="90" fill="none" stroke="#333" stroke-width="3" rx="3" />
-                        <!-- Main grid lines (3x3) -->
-                        <line x1="5" y1="35" x2="95" y2="35" stroke="#333" stroke-width="2" />
-                        <line x1="5" y1="65" x2="95" y2="65" stroke="#333" stroke-width="2" />
-                        <line x1="35" y1="5" x2="35" y2="95" stroke="#333" stroke-width="2" />
-                        <line x1="65" y1="5" x2="65" y2="95" stroke="#333" stroke-width="2" />
-                        <!-- Minor grid lines -->
-                        <line x1="5" y1="20" x2="95" y2="20" stroke="#999" stroke-width="0.5" />
-                        <line x1="5" y1="50" x2="95" y2="50" stroke="#999" stroke-width="0.5" />
-                        <line x1="5" y1="80" x2="95" y2="80" stroke="#999" stroke-width="0.5" />
-                        <line x1="20" y1="5" x2="20" y2="95" stroke="#999" stroke-width="0.5" />
-                        <line x1="50" y1="5" x2="50" y2="95" stroke="#999" stroke-width="0.5" />
-                        <line x1="80" y1="5" x2="80" y2="95" stroke="#999" stroke-width="0.5" />
-                        <!-- Black numbers in cells - larger and more visible -->
-                        <text x="15" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">5</text>
-                        <text x="50" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">3</text>
-                        <text x="85" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">7</text>
-                        <text x="15" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">9</text>
-                        <text x="50" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">1</text>
-                        <text x="85" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">2</text>
-                        <text x="15" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">8</text>
-                        <text x="50" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">4</text>
-                        <text x="85" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">6</text>
-                    </svg>
-                </div>
-                <div class="card-title">Sudoku</div>
-                <div class="card-domain">sudoku.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- MQTT Explorer -->
+                <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 2; clip-path: url(#cloud2);"
+                    target="_blank">
+                    <div class="icon mqtt">
+                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 40px;">
+                            <path
+                                d="M 15 35 Q 15 20 25 20 Q 30 10 42 10 Q 55 10 58 22 Q 70 22 70 35 Q 70 48 58 48 Q 25 48 15 35 Z"
+                                fill="#5ba3d0" stroke="none" />
+                            <text x="28" y="38" font-size="14" font-weight="bold" fill="white"
+                                font-family="Arial">MQTT</text>
+                            <circle cx="68" cy="32" r="3" fill="#5ba3d0" />
+                            <line x1="72" y1="32" x2="78" y2="32" stroke="#5ba3d0" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="card-title">MQTT Explorer</div>
+                    <div class="card-domain">mqtt.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Netdata -->
-            <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 9; clip-path: url(#cloud4);"
-                target="_blank">
-                <div class="icon monitor">
-                    <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 50px;">
-                        <!-- Monitor frame -->
-                        <rect x="5" y="5" width="90" height="55" fill="#2a2a2a" stroke="#444" stroke-width="2" rx="3" />
-                        <rect x="8" y="8" width="84" height="48" fill="#1a1a1a" stroke="#333" stroke-width="1" />
+                <!-- Home Server -->
+                <a href="http://cc.beker.club" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
+                    target="_blank">
+                    <div class="icon homeserver">🏠</div>
+                    <div class="card-title">Home Server</div>
+                    <div class="card-domain">cc.beker.club</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+            </div>
+        </div>
 
-                        <!-- CPU Graph - Orange/Red -->
-                        <rect x="12" y="35" width="4" height="18" fill="#FF6B35" stroke="none" />
-                        <rect x="18" y="28" width="4" height="25" fill="#FF6B35" stroke="none" />
-                        <rect x="24" y="32" width="4" height="21" fill="#FF6B35" stroke="none" />
-                        <rect x="30" y="25" width="4" height="28" fill="#FF6B35" stroke="none" />
-                        <rect x="36" y="30" width="4" height="23" fill="#FF6B35" stroke="none" />
-                        <rect x="42" y="26" width="4" height="27" fill="#FF6B35" stroke="none" />
-                        <rect x="48" y="33" width="4" height="20" fill="#FF6B35" stroke="none" />
-                        <rect x="54" y="29" width="4" height="24" fill="#FF6B35" stroke="none" />
-                        <rect x="60" y="34" width="4" height="19" fill="#FF6B35" stroke="none" />
-                        <rect x="66" y="27" width="4" height="26" fill="#FF6B35" stroke="none" />
-                        <rect x="72" y="31" width="4" height="22" fill="#FF6B35" stroke="none" />
-                        <rect x="78" y="36" width="4" height="17" fill="#FF6B35" stroke="none" />
+        <div class="games-frame">
+            <div class="frame-title">🎮 Spiele</div>
+            <div class="frame-grid">
+                <!-- Chess -->
+                <a href="https://chess.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
+                    target="_blank">
+                    <div class="icon chess">
+                        <img src="https://cdn-icons-png.freepik.com/256/3655/3655055.png?semt=ais_white_label"
+                            alt="Chess Icon" style="width: 60%; height: 60%; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Chess</div>
+                    <div class="card-domain">chess.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-                        <!-- Memory Graph - Blue -->
-                        <rect x="12" y="48" width="4" height="5" fill="#0099FF" stroke="none" />
-                        <rect x="18" y="46" width="4" height="7" fill="#0099FF" stroke="none" />
-                        <rect x="24" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
-                        <rect x="30" y="45" width="4" height="8" fill="#0099FF" stroke="none" />
-                        <rect x="36" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
-                        <rect x="42" y="46" width="4" height="7" fill="#0099FF" stroke="none" />
-                        <rect x="48" y="48" width="4" height="5" fill="#0099FF" stroke="none" />
-                        <rect x="54" y="46" width="4" height="7" fill="#0099FF" stroke="none" />
-                        <rect x="60" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
-                        <rect x="66" y="45" width="4" height="8" fill="#0099FF" stroke="none" />
-                        <rect x="72" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
-                        <rect x="78" y="49" width="4" height="4" fill="#0099FF" stroke="none" />
-                    </svg>
-                </div>
-                <div class="card-title">Netdata</div>
-                <div class="card-domain">monitor.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Tetris -->
+                <a href="https://tetris.bekerh.ddns.net" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
+                    target="_blank">
+                    <div class="icon commodity">
+                        <img src="https://cdn.dribbble.com/userupload/21188001/file/original-73cd4c1ab2602df11b0dccc6feb8739a.jpg?resize=752x&vertical=center"
+                            alt="Tetris Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Tetris</div>
+                    <div class="card-domain">tetris.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Existing cards that were not in the user's list -->
+                <!-- Sudoku -->
+                <a href="https://sudoku.bekerh.ddns.net" class="card" style="--card-index: 2; clip-path: url(#cloud3);"
+                    target="_blank">
+                    <div class="icon sudoku sudoku-rotated">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                            <defs>
+                                <linearGradient id="sudokuGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF6B6B" />
+                                    <stop offset="100%" style="stop-color:#FF4757" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFA502" />
+                                    <stop offset="100%" style="stop-color:#FF7F50" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFD93D" />
+                                    <stop offset="100%" style="stop-color:#FFC93C" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#6BCB77" />
+                                    <stop offset="100%" style="stop-color:#4D96FF" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4D96FF" />
+                                    <stop offset="100%" style="stop-color:#9D84B7" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF10F0" />
+                                    <stop offset="100%" style="stop-color:#FF6B9D" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#A8E6CF" />
+                                    <stop offset="100%" style="stop-color:#56AB91" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFB6C1" />
+                                    <stop offset="100%" style="stop-color:#FF69B4" />
+                                </linearGradient>
+                                <linearGradient id="sudokuGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#87CEEB" />
+                                    <stop offset="100%" style="stop-color:#4169E1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Outer border -->
+                            <rect x="5" y="5" width="90" height="90" fill="none" stroke="#333" stroke-width="3" rx="3" />
+                            <!-- Main grid lines (3x3) -->
+                            <line x1="5" y1="35" x2="95" y2="35" stroke="#333" stroke-width="2" />
+                            <line x1="5" y1="65" x2="95" y2="65" stroke="#333" stroke-width="2" />
+                            <line x1="35" y1="5" x2="35" y2="95" stroke="#333" stroke-width="2" />
+                            <line x1="65" y1="5" x2="65" y2="95" stroke="#333" stroke-width="2" />
+                            <!-- Minor grid lines -->
+                            <line x1="5" y1="20" x2="95" y2="20" stroke="#999" stroke-width="0.5" />
+                            <line x1="5" y1="50" x2="95" y2="50" stroke="#999" stroke-width="0.5" />
+                            <line x1="5" y1="80" x2="95" y2="80" stroke="#999" stroke-width="0.5" />
+                            <line x1="20" y1="5" x2="20" y2="95" stroke="#999" stroke-width="0.5" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="#999" stroke-width="0.5" />
+                            <line x1="80" y1="5" x2="80" y2="95" stroke="#999" stroke-width="0.5" />
+                            <!-- Black numbers in cells - larger and more visible -->
+                            <text x="15" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">5</text>
+                            <text x="50" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">3</text>
+                            <text x="85" y="32" font-size="22" font-weight="900" fill="#000" text-anchor="middle">7</text>
+                            <text x="15" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">9</text>
+                            <text x="50" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">1</text>
+                            <text x="85" y="62" font-size="22" font-weight="900" fill="#000" text-anchor="middle">2</text>
+                            <text x="15" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">8</text>
+                            <text x="50" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">4</text>
+                            <text x="85" y="92" font-size="22" font-weight="900" fill="#000" text-anchor="middle">6</text>
+                        </svg>
+                    </div>
+                    <div class="card-title">Sudoku</div>
+                    <div class="card-domain">sudoku.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+            </div>
+        </div>
 
-            <!-- Glances -->
-            <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 10; clip-path: url(#cloud5);"
-                target="_blank">
-                <div class="icon glance">
-                    <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" style="width: 65px; height: 35px;">
-                        <!-- BTOP Text -->
-                        <text x="25" y="38" font-size="24" font-weight="bold" fill="#FF3333"
-                            font-family="Arial, sans-serif">BTOP</text>
+        <div class="science-frame">
+            <div class="frame-title">🔬 Wissenschaft</div>
+            <div class="frame-grid">
+                <!-- Newton -->
+                <a href="https://ai.studio/apps/drive/1TYGUUWdW0zpGxf2XtLe_ZCQ3jJ--11Zx?fullscreenApplet=true" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
+                    target="_blank">
+                    <div class="icon">
+                        <img src="/newton-icon.png" alt="Newton Icon"
+                            style="width: 70px; height: 70px; object-fit: contain;">
+                    </div>
+                    <div class="card-title">Newton</div>
+                    <div class="card-domain">ai.studio</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-                        <!-- Play Triangle -->
-                        <polygon points="75,20 75,50 105,35" fill="#FF3333" />
-                    </svg>
-                </div>
-                <div class="card-title">Glances</div>
-                <div class="card-domain">btop.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Mandelbrot Explorer -->
+                <a href="https://ai.studio/apps/drive/1rRPzOqRF_aXSlx_ixx8yrS1hg327zkPt?fullscreenApplet=true" class="card"
+                    style="--card-index: 1; clip-path: url(#cloud2);" target="_blank">
+                    <div class="icon" style="color: #8B5CF6;">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px;">
+                            <defs>
+                                <linearGradient id="mandelbrotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3a8a" />
+                                    <stop offset="25%" style="stop-color:#7c3aed" />
+                                    <stop offset="50%" style="stop-color:#ec4899" />
+                                    <stop offset="75%" style="stop-color:#f59e0b" />
+                                    <stop offset="100%" style="stop-color:#10b981" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Mandelbrot-inspired shape -->
+                            <ellipse cx="38" cy="50" rx="28" ry="35" fill="url(#mandelbrotGrad)" opacity="0.9" />
+                            <circle cx="70" cy="50" r="12" fill="#7c3aed" />
+                            <circle cx="82" cy="50" r="5" fill="#ec4899" />
+                            <circle cx="88" cy="50" r="2" fill="#f59e0b" />
+                            <!-- Spiral details -->
+                            <circle cx="30" cy="35" r="4" fill="#10b981" opacity="0.7" />
+                            <circle cx="30" cy="65" r="4" fill="#10b981" opacity="0.7" />
+                            <circle cx="20" cy="50" r="3" fill="#f59e0b" opacity="0.8" />
+                        </svg>
+                    </div>
+                    <div class="card-title">Mandelbrot Explorer</div>
+                    <div class="card-domain">ai.studio</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Portainer -->
-            <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 11; clip-path: url(#cloud6);"
-                target="_blank">
-                <div class="icon docker">🐋</div>
-                <div class="card-title">Portainer</div>
-                <div class="card-domain">docker.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Covid Hoax -->
+                <a href="https://github.com/HelmutQualtinger/Sterbetafeln/blob/5years/README.md" class="card"
+                    style="--card-index: 2; clip-path: url(#cloud3);" target="_blank">
+                    <div class="icon covid">
+                        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
+                            <defs>
+                                <radialGradient id="covidGrad" cx="30%" cy="30%">
+                                    <stop offset="0%" style="stop-color:#FF6B6B" />
+                                    <stop offset="70%" style="stop-color:#FF0000" />
+                                    <stop offset="100%" style="stop-color:#CC0000" />
+                                </radialGradient>
+                                <filter id="covidShadow">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                                    <feOffset dx="0" dy="3" />
+                                </filter>
+                            </defs>
+                            <!-- Main sphere -->
+                            <circle cx="60" cy="60" r="35" fill="url(#covidGrad)" filter="url(#covidShadow)" />
+                            <!-- Highlight for 3D effect -->
+                            <ellipse cx="48" cy="45" rx="12" ry="15" fill="rgba(255,255,255,0.3)" opacity="0.6" />
 
-            <!-- MQTT Explorer -->
-            <a href="http://mqtt.bekerh.ddns.net" class="card" style="--card-index: 12; clip-path: url(#cloud1);"
-                target="_blank">
-                <div class="icon mqtt">
-                    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 40px;">
-                        <path
-                            d="M 15 35 Q 15 20 25 20 Q 30 10 42 10 Q 55 10 58 22 Q 70 22 70 35 Q 70 48 58 48 Q 25 48 15 35 Z"
-                            fill="#5ba3d0" stroke="none" />
-                        <text x="28" y="38" font-size="14" font-weight="bold" fill="white"
-                            font-family="Arial">MQTT</text>
-                        <circle cx="68" cy="32" r="3" fill="#5ba3d0" />
-                        <line x1="72" y1="32" x2="78" y2="32" stroke="#5ba3d0" stroke-width="2" />
-                    </svg>
-                </div>
-                <div class="card-title">MQTT Explorer</div>
-                <div class="card-domain">mqtt.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                            <!-- Spikes with gradients -->
+                            <!-- Top -->
+                            <g fill="#FF0000">
+                                <circle cx="60" cy="15" r="8" fill="url(#covidGrad)" />
+                                <path d="M 58 27 Q 60 35 60 45" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Top-right -->
+                            <g fill="#FF0000">
+                                <circle cx="85" cy="25" r="8" fill="url(#covidGrad)" />
+                                <path d="M 80 32 Q 82 37 75 50" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Right -->
+                            <g fill="#FF0000">
+                                <circle cx="105" cy="60" r="8" fill="url(#covidGrad)" />
+                                <path d="M 97 60 Q 91 60 80 60" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Bottom-right -->
+                            <g fill="#FF0000">
+                                <circle cx="85" cy="95" r="8" fill="url(#covidGrad)" />
+                                <path d="M 80 88 Q 78 83 75 70" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Bottom -->
+                            <g fill="#FF0000">
+                                <circle cx="60" cy="105" r="8" fill="url(#covidGrad)" />
+                                <path d="M 60 93 Q 60 85 60 75" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Bottom-left -->
+                            <g fill="#FF0000">
+                                <circle cx="35" cy="95" r="8" fill="url(#covidGrad)" />
+                                <path d="M 40 88 Q 42 83 45 70" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Left -->
+                            <g fill="#FF0000">
+                                <circle cx="15" cy="60" r="8" fill="url(#covidGrad)" />
+                                <path d="M 23 60 Q 29 60 40 60" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                            <!-- Top-left -->
+                            <g fill="#FF0000">
+                                <circle cx="35" cy="25" r="8" fill="url(#covidGrad)" />
+                                <path d="M 40 32 Q 38 37 45 50" stroke="#FF0000" stroke-width="6" fill="none"
+                                    stroke-linecap="round" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="card-title">Covid Hoax</div>
+                    <div class="card-domain">github.com</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- NPM -->
-            <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 13; clip-path: url(#cloud2);"
-                target="_blank">
-                <div class="icon npm">
-                    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
-                        <defs>
-                            <linearGradient id="npmGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FDD835" />
-                                <stop offset="20%" style="stop-color:#FB8C00" />
-                                <stop offset="50%" style="stop-color:#E91E63" />
-                                <stop offset="100%" style="stop-color:#7B1FA2" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Outer hexagon -->
-                        <polygon points="60,15 105,40 105,90 60,115 15,90 15,40" fill="none" stroke="url(#npmGrad3)"
-                            stroke-width="8" stroke-linejoin="round" />
-                        <!-- Center hexagon -->
-                        <polygon points="60,45 90,65 90,95 60,110 30,95 30,65" fill="#FF5722" />
-                        <!-- Top-left circle -->
-                        <circle cx="35" cy="38" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
-                        <!-- Top-right circle -->
-                        <circle cx="85" cy="38" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
-                        <!-- Bottom-right circle -->
-                        <circle cx="95" cy="85" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
-                        <!-- Bottom-left circle -->
-                        <circle cx="25" cy="85" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
-                    </svg>
-                </div>
-                <div class="card-title">NPM</div>
-                <div class="card-domain">ng.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- GitHub Helmut -->
+                <a href="https://github.com/HelmutQualtinger" class="card"
+                    style="--card-index: 3; clip-path: url(#cloud4);" target="_blank">
+                    <div class="icon icon-github" style="color: #8B0000;">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="card-title">GitHub Helmut</div>
+                    <div class="card-domain">github.com</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- Commodities -->
-            <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 14; clip-path: url(#cloud3);"
-                target="_blank">
-                <div class="icon commodity">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
-                        <!-- Ölfass/Barrel links -->
-                        <ellipse cx="25" cy="25" rx="12" ry="8" fill="#FFD700" stroke="#000" stroke-width="2.5" />
-                        <rect x="13" y="25" width="24" height="35" fill="#FFD700" stroke="#000" stroke-width="2.5" />
-                        <line x1="13" y1="35" x2="37" y2="35" stroke="#000" stroke-width="2" />
-                        <line x1="13" y1="45" x2="37" y2="45" stroke="#000" stroke-width="2" />
-                        <ellipse cx="25" cy="60" rx="12" ry="8" fill="#E6B800" stroke="#000" stroke-width="2.5" />
+                <!-- World IQ -->
+                <a href="http://qualcuno.info/Statistik" class="card" style="--card-index: 4; clip-path: url(#cloud5);"
+                    target="_blank">
+                    <div class="icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                            <!-- Ocean (Circle background) -->
+                            <circle cx="50" cy="50" r="45" fill="#00008B" stroke="#87CEEB" stroke-width="2" />
 
-                        <!-- Mais/Corn unten links -->
-                        <rect x="15" y="55" width="8" height="15" fill="#F4D03F" stroke="#000" stroke-width="2"
-                            rx="2" />
-                        <circle cx="19" cy="58" r="1.5" fill="#000" />
-                        <circle cx="19" cy="62" r="1.5" fill="#000" />
-                        <circle cx="19" cy="66" r="1.5" fill="#000" />
+                            <!-- Africa: More detailed shape including Horn and West bulge -->
+                            <!-- Let's use a cleaner single path for Africa -->
+                            <path
+                                d="M48,36 L40,36 C35,36 30,42 30,48 C30,55 38,65 48,82 C55,70 62,60 68,55 L60,48 L58,38 L48,36 Z"
+                                fill="#8B4513" />
 
-                        <!-- Blätter/Leaves unten -->
-                        <ellipse cx="32" cy="72" rx="6" ry="10" fill="#90EE90" stroke="#000" stroke-width="2"
-                            transform="rotate(-30 32 72)" />
-                        <ellipse cx="42" cy="72" rx="6" ry="10" fill="#90EE90" stroke="#000" stroke-width="2"
-                            transform="rotate(30 42 72)" />
+                            <!-- Europe: Iberia, Italy, etc -->
+                            <path d="M40,34 L38,28 L45,22 L55,20 L60,25 L58,30 L54,32 L52,28 L50,32 L46,34 Z"
+                                fill="#8B4513" />
 
-                        <!-- Sandhaufen rechts oben -->
-                        <path d="M 50 20 Q 55 15 65 18 Q 68 20 65 30 Q 55 35 50 32 Z" fill="#D4A574" stroke="#000"
-                            stroke-width="2.5" />
-                        <path d="M 52 28 Q 57 25 62 27" stroke="#000" stroke-width="1.5" fill="none" />
-                        <path d="M 54 32 Q 59 30 63 32" stroke="#000" stroke-width="1.5" fill="none" />
+                            <!-- UK/Ireland -->
+                            <path d="M35,22 L38,18 L42,20 L38,24 Z" fill="#8B4513" />
+                        </svg>
+                    </div>
+                    <div class="card-title">World IQ</div>
+                    <div class="card-domain">qualcuno.info</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+            </div>
+        </div>
 
-                        <!-- Geldsack rechts -->
-                        <rect x="50" y="38" width="35" height="32" fill="#D3D3D3" stroke="#000" stroke-width="2.5"
-                            rx="3" />
-                        <rect x="55" y="33" width="25" height="8" fill="#A9A9A9" stroke="#000" stroke-width="2.5"
-                            rx="2" />
+        <div class="server-frame">
+            <div class="frame-title">⚙️ Server-Verwaltung</div>
+            <div class="frame-grid">
+                <!-- GoAccess -->
+                <a href="https://al.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
+                    target="_blank">
+                    <div class="icon goaccess">
+                        <img src="https://r4ven.fr/images-illustration/cover-goaccess.webp" alt="GoAccess Icon"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div class="card-title">GoAccess</div>
+                    <div class="card-domain">al.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-                        <!-- $ Symbol im Geldsack -->
-                        <text x="67" y="63" font-size="18" font-weight="bold" fill="#000" text-anchor="middle">$</text>
+                <!-- Netdata -->
+                <a href="http://monitor.bekerh.ddns.net" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
+                    target="_blank">
+                    <div class="icon monitor">
+                        <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 50px;">
+                            <!-- Monitor frame -->
+                            <rect x="5" y="5" width="90" height="55" fill="#2a2a2a" stroke="#444" stroke-width="2" rx="3" />
+                            <rect x="8" y="8" width="84" height="48" fill="#1a1a1a" stroke="#333" stroke-width="1" />
 
-                        <!-- XXX Pattern im Geldsack -->
-                        <line x1="58" y1="48" x2="64" y2="54" stroke="#000" stroke-width="2" />
-                        <line x1="64" y1="48" x2="58" y2="54" stroke="#000" stroke-width="2" />
-                        <line x1="72" y1="48" x2="78" y2="54" stroke="#000" stroke-width="2" />
-                        <line x1="78" y1="48" x2="72" y2="54" stroke="#000" stroke-width="2" />
+                            <!-- CPU Graph - Orange/Red -->
+                            <rect x="12" y="35" width="4" height="18" fill="#FF6B35" stroke="none" />
+                            <rect x="18" y="28" width="4" height="25" fill="#FF6B35" stroke="none" />
+                            <rect x="24" y="32" width="4" height="21" fill="#FF6B35" stroke="none" />
+                            <rect x="30" y="25" width="4" height="28" fill="#FF6B35" stroke="none" />
+                            <rect x="36" y="30" width="4" height="23" fill="#FF6B35" stroke="none" />
+                            <rect x="42" y="26" width="4" height="27" fill="#FF6B35" stroke="none" />
+                            <rect x="48" y="33" width="4" height="20" fill="#FF6B35" stroke="none" />
+                            <rect x="54" y="29" width="4" height="24" fill="#FF6B35" stroke="none" />
+                            <rect x="60" y="34" width="4" height="19" fill="#FF6B35" stroke="none" />
+                            <rect x="66" y="27" width="4" height="26" fill="#FF6B35" stroke="none" />
+                            <rect x="72" y="31" width="4" height="22" fill="#FF6B35" stroke="none" />
+                            <rect x="78" y="36" width="4" height="17" fill="#FF6B35" stroke="none" />
 
-                        <!-- Sandhaufen unten rechts -->
-                        <path d="M 50 70 Q 55 65 65 68 Q 68 70 65 80 Q 55 85 50 82 Z" fill="#D4A574" stroke="#000"
-                            stroke-width="2.5" />
-                        <path d="M 52 76 Q 57 73 62 75" stroke="#000" stroke-width="1.5" fill="none" />
-                    </svg>
-                </div>
-                <div class="card-title">Commodities</div>
-                <div class="card-domain">preise.bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                            <!-- Memory Graph - Blue -->
+                            <rect x="12" y="48" width="4" height="5" fill="#0099FF" stroke="none" />
+                            <rect x="18" y="46" width="4" height="7" fill="#0099FF" stroke="none" />
+                            <rect x="24" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
+                            <rect x="30" y="45" width="4" height="8" fill="#0099FF" stroke="none" />
+                            <rect x="36" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
+                            <rect x="42" y="46" width="4" height="7" fill="#0099FF" stroke="none" />
+                            <rect x="48" y="48" width="4" height="5" fill="#0099FF" stroke="none" />
+                            <rect x="54" y="46" width="4" height="7" fill="#0099FF" stroke="none" />
+                            <rect x="60" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
+                            <rect x="66" y="45" width="4" height="8" fill="#0099FF" stroke="none" />
+                            <rect x="72" y="47" width="4" height="6" fill="#0099FF" stroke="none" />
+                            <rect x="78" y="49" width="4" height="4" fill="#0099FF" stroke="none" />
+                        </svg>
+                    </div>
+                    <div class="card-title">Netdata</div>
+                    <div class="card-domain">monitor.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-            <!-- PDF Reorder -->
-            <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 15; clip-path: url(#cloud4);"
-                target="_blank">
-                <div class="icon" style="color: #8B0000;">
-                    <i class="fa-solid fa-sort" style="font-size: 1.8em; margin-bottom: 6px;"></i>
-                </div>
-                <div class="card-title">PDF Reorder</div>
-                <div class="card-domain">rectoscan-web-container:5000</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Glances -->
+                <a href="http://btop.bekerh.ddns.net" class="card" style="--card-index: 2; clip-path: url(#cloud3);"
+                    target="_blank">
+                    <div class="icon glance">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" style="width: 65px; height: 35px;">
+                            <!-- BTOP Text -->
+                            <text x="25" y="38" font-size="24" font-weight="bold" fill="#FF3333"
+                                font-family="Arial, sans-serif">BTOP</text>
 
-            <!-- Covid Hoax -->
-            <a href="https://github.com/HelmutQualtinger/Sterbetafeln/blob/5years/README.md" class="card"
-                style="--card-index: 16; clip-path: url(#cloud5);" target="_blank">
-                <div class="icon covid">
-                    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
-                        <defs>
-                            <radialGradient id="covidGrad" cx="30%" cy="30%">
-                                <stop offset="0%" style="stop-color:#FF6B6B" />
-                                <stop offset="70%" style="stop-color:#FF0000" />
-                                <stop offset="100%" style="stop-color:#CC0000" />
-                            </radialGradient>
-                            <filter id="covidShadow">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
-                                <feOffset dx="0" dy="3" />
-                            </filter>
-                        </defs>
-                        <!-- Main sphere -->
-                        <circle cx="60" cy="60" r="35" fill="url(#covidGrad)" filter="url(#covidShadow)" />
-                        <!-- Highlight for 3D effect -->
-                        <ellipse cx="48" cy="45" rx="12" ry="15" fill="rgba(255,255,255,0.3)" opacity="0.6" />
+                            <!-- Play Triangle -->
+                            <polygon points="75,20 75,50 105,35" fill="#FF3333" />
+                        </svg>
+                    </div>
+                    <div class="card-title">Glances</div>
+                    <div class="card-domain">btop.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
-                        <!-- Spikes with gradients -->
-                        <!-- Top -->
-                        <g fill="#FF0000">
-                            <circle cx="60" cy="15" r="8" fill="url(#covidGrad)" />
-                            <path d="M 58 27 Q 60 35 60 45" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Top-right -->
-                        <g fill="#FF0000">
-                            <circle cx="85" cy="25" r="8" fill="url(#covidGrad)" />
-                            <path d="M 80 32 Q 82 37 75 50" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Right -->
-                        <g fill="#FF0000">
-                            <circle cx="105" cy="60" r="8" fill="url(#covidGrad)" />
-                            <path d="M 97 60 Q 91 60 80 60" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Bottom-right -->
-                        <g fill="#FF0000">
-                            <circle cx="85" cy="95" r="8" fill="url(#covidGrad)" />
-                            <path d="M 80 88 Q 78 83 75 70" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Bottom -->
-                        <g fill="#FF0000">
-                            <circle cx="60" cy="105" r="8" fill="url(#covidGrad)" />
-                            <path d="M 60 93 Q 60 85 60 75" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Bottom-left -->
-                        <g fill="#FF0000">
-                            <circle cx="35" cy="95" r="8" fill="url(#covidGrad)" />
-                            <path d="M 40 88 Q 42 83 45 70" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Left -->
-                        <g fill="#FF0000">
-                            <circle cx="15" cy="60" r="8" fill="url(#covidGrad)" />
-                            <path d="M 23 60 Q 29 60 40 60" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                        <!-- Top-left -->
-                        <g fill="#FF0000">
-                            <circle cx="35" cy="25" r="8" fill="url(#covidGrad)" />
-                            <path d="M 40 32 Q 38 37 45 50" stroke="#FF0000" stroke-width="6" fill="none"
-                                stroke-linecap="round" />
-                        </g>
-                    </svg>
-                </div>
-                <div class="card-title">Covid Hoax</div>
-                <div class="card-domain">github.com</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                <!-- Portainer -->
+                <a href="http://docker.bekerh.ddns.net" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
+                    target="_blank">
+                    <div class="icon docker">🐋</div>
+                    <div class="card-title">Portainer</div>
+                    <div class="card-domain">docker.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
 
+                <!-- NPM -->
+                <a href="http://ng.bekerh.ddns.net" class="card" style="--card-index: 4; clip-path: url(#cloud5);"
+                    target="_blank">
+                    <div class="icon npm">
+                        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                            <defs>
+                                <linearGradient id="npmGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FDD835" />
+                                    <stop offset="20%" style="stop-color:#FB8C00" />
+                                    <stop offset="50%" style="stop-color:#E91E63" />
+                                    <stop offset="100%" style="stop-color:#7B1FA2" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Outer hexagon -->
+                            <polygon points="60,15 105,40 105,90 60,115 15,90 15,40" fill="none" stroke="url(#npmGrad3)"
+                                stroke-width="8" stroke-linejoin="round" />
+                            <!-- Center hexagon -->
+                            <polygon points="60,45 90,65 90,95 60,110 30,95 30,65" fill="#FF5722" />
+                            <!-- Top-left circle -->
+                            <circle cx="35" cy="38" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
+                            <!-- Top-right circle -->
+                            <circle cx="85" cy="38" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
+                            <!-- Bottom-right circle -->
+                            <circle cx="95" cy="85" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
+                            <!-- Bottom-left circle -->
+                            <circle cx="25" cy="85" r="7" fill="white" stroke="url(#npmGrad3)" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <div class="card-title">NPM</div>
+                    <div class="card-domain">ng.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+            </div>
+        </div>
 
-            <!-- New GitHub Link Card -->
-            <a href="https://github.com/HelmutQualtinger" class="card"
-                style="--card-index: 18; clip-path: url(#cloud4);" target="_blank">
-                <div class="icon icon-github" style="color: #8B0000;">
-                    <i class="fab fa-github"></i>
-                </div>
-                <div class="card-title">GitHub Helmut</div>
-                <div class="card-domain">github.com</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+        <div class="tools-frame">
+            <div class="frame-title">🛠️ Werkzeuge</div>
+            <div class="frame-grid">
+                <!-- Commodities -->
+                <a href="http://preise.bekerh.ddns.net" class="card" style="--card-index: 0; clip-path: url(#cloud1);"
+                    target="_blank">
+                    <div class="icon commodity">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                            <!-- Ölfass/Barrel links -->
+                            <ellipse cx="25" cy="25" rx="12" ry="8" fill="#FFD700" stroke="#000" stroke-width="2.5" />
+                            <rect x="13" y="25" width="24" height="35" fill="#FFD700" stroke="#000" stroke-width="2.5" />
+                            <line x1="13" y1="35" x2="37" y2="35" stroke="#000" stroke-width="2" />
+                            <line x1="13" y1="45" x2="37" y2="45" stroke="#000" stroke-width="2" />
+                            <ellipse cx="25" cy="60" rx="12" ry="8" fill="#E6B800" stroke="#000" stroke-width="2.5" />
 
-            <!-- Mandelbrot Explorer -->
-            <a href="https://www.bekerh.ddns.net/js-mandelbrot/mandelbrot_explorer" class="card"
-                style="--card-index: 19; clip-path: url(#cloud5);" target="_blank">
-                <div class="icon" style="color: #8B5CF6;">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px;">
-                        <defs>
-                            <linearGradient id="mandelbrotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#1e3a8a" />
-                                <stop offset="25%" style="stop-color:#7c3aed" />
-                                <stop offset="50%" style="stop-color:#ec4899" />
-                                <stop offset="75%" style="stop-color:#f59e0b" />
-                                <stop offset="100%" style="stop-color:#10b981" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Mandelbrot-inspired shape -->
-                        <ellipse cx="38" cy="50" rx="28" ry="35" fill="url(#mandelbrotGrad)" opacity="0.9" />
-                        <circle cx="70" cy="50" r="12" fill="#7c3aed" />
-                        <circle cx="82" cy="50" r="5" fill="#ec4899" />
-                        <circle cx="88" cy="50" r="2" fill="#f59e0b" />
-                        <!-- Spiral details -->
-                        <circle cx="30" cy="35" r="4" fill="#10b981" opacity="0.7" />
-                        <circle cx="30" cy="65" r="4" fill="#10b981" opacity="0.7" />
-                        <circle cx="20" cy="50" r="3" fill="#f59e0b" opacity="0.8" />
-                    </svg>
-                </div>
-                <div class="card-title">Mandelbrot Explorer</div>
-                <div class="card-domain">bekerh.ddns.net</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                            <!-- Mais/Corn unten links -->
+                            <rect x="15" y="55" width="8" height="15" fill="#F4D03F" stroke="#000" stroke-width="2"
+                                rx="2" />
+                            <circle cx="19" cy="58" r="1.5" fill="#000" />
+                            <circle cx="19" cy="62" r="1.5" fill="#000" />
+                            <circle cx="19" cy="66" r="1.5" fill="#000" />
 
-            <!-- World IQ -->
-            <a href="http://qualcuno.info/Statistik" class="card" style="--card-index: 20; clip-path: url(#cloud6);"
-                target="_blank">
-                <div class="icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
-                        <!-- Ocean (Circle background) -->
-                        <circle cx="50" cy="50" r="45" fill="#00008B" stroke="#87CEEB" stroke-width="2" />
+                            <!-- Blätter/Leaves unten -->
+                            <ellipse cx="32" cy="72" rx="6" ry="10" fill="#90EE90" stroke="#000" stroke-width="2"
+                                transform="rotate(-30 32 72)" />
+                            <ellipse cx="42" cy="72" rx="6" ry="10" fill="#90EE90" stroke="#000" stroke-width="2"
+                                transform="rotate(30 42 72)" />
 
-                        <!-- Africa: More detailed shape including Horn and West bulge -->
-                        <!-- Let's use a cleaner single path for Africa -->
-                        <path
-                            d="M48,36 L40,36 C35,36 30,42 30,48 C30,55 38,65 48,82 C55,70 62,60 68,55 L60,48 L58,38 L48,36 Z"
-                            fill="#8B4513" />
+                            <!-- Sandhaufen rechts oben -->
+                            <path d="M 50 20 Q 55 15 65 18 Q 68 20 65 30 Q 55 35 50 32 Z" fill="#D4A574" stroke="#000"
+                                stroke-width="2.5" />
+                            <path d="M 52 28 Q 57 25 62 27" stroke="#000" stroke-width="1.5" fill="none" />
+                            <path d="M 54 32 Q 59 30 63 32" stroke="#000" stroke-width="1.5" fill="none" />
 
-                        <!-- Europe: Iberia, Italy, etc -->
-                        <path d="M40,34 L38,28 L45,22 L55,20 L60,25 L58,30 L54,32 L52,28 L50,32 L46,34 Z"
-                            fill="#8B4513" />
+                            <!-- Geldsack rechts -->
+                            <rect x="50" y="38" width="35" height="32" fill="#D3D3D3" stroke="#000" stroke-width="2.5"
+                                rx="3" />
+                            <rect x="55" y="33" width="25" height="8" fill="#A9A9A9" stroke="#000" stroke-width="2.5"
+                                rx="2" />
 
-                        <!-- UK/Ireland -->
-                        <path d="M35,22 L38,18 L42,20 L38,24 Z" fill="#8B4513" />
-                    </svg>
-                </div>
-                <div class="card-title">World IQ</div>
-                <div class="card-domain">qualcuno.info</div>
-                <div class="status"><span class="status-dot"></span>Online</div>
-            </a>
+                            <!-- $ Symbol im Geldsack -->
+                            <text x="67" y="63" font-size="18" font-weight="bold" fill="#000" text-anchor="middle">$</text>
 
+                            <!-- XXX Pattern im Geldsack -->
+                            <line x1="58" y1="48" x2="64" y2="54" stroke="#000" stroke-width="2" />
+                            <line x1="64" y1="48" x2="58" y2="54" stroke="#000" stroke-width="2" />
+                            <line x1="72" y1="48" x2="78" y2="54" stroke="#000" stroke-width="2" />
+                            <line x1="78" y1="48" x2="72" y2="54" stroke="#000" stroke-width="2" />
+
+                            <!-- Sandhaufen unten rechts -->
+                            <path d="M 50 70 Q 55 65 65 68 Q 68 70 65 80 Q 55 85 50 82 Z" fill="#D4A574" stroke="#000"
+                                stroke-width="2.5" />
+                            <path d="M 52 76 Q 57 73 62 75" stroke="#000" stroke-width="1.5" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="card-title">Commodities</div>
+                    <div class="card-domain">preise.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+
+                <!-- PDF Reorder -->
+                <a href="http://rectoscan.bekerh.ddns.net" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
+                    target="_blank">
+                    <div class="icon" style="color: #8B0000;">
+                        <i class="fa-solid fa-sort" style="font-size: 1.8em; margin-bottom: 6px;"></i>
+                    </div>
+                    <div class="card-title">PDF Reorder</div>
+                    <div class="card-domain">rectoscan-web-container:5000</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+            </div>
+        </div>
         </div>
 
         <div class="weather-webcam-section">
