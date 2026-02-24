@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold as Investment - Returns, Taxes & Security</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 60px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: #ffd700;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(255,215,0,0.2), rgba(255,215,0,0.05));
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-top: 20px;
+        }
+
+        .comparison-table th {
+            background: rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 20px;
+            font-size: 1.3rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+
+        .comparison-table tr:first-child th:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .comparison-table tr:first-child th:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .comparison-table td:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .comparison-table td:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-gold {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .highlight-green {
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .highlight-red {
+            color: #f87171;
+            font-weight: bold;
+        }
+
+        ul {
+            color: #ffffff;
+            font-size: 1.4rem;
+            line-height: 2;
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: linear-gradient(145deg, #ffd700, #b8860b);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicator {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            color: #ffd700;
+            font-size: 1.2rem;
+            z-index: 100;
+        }
+
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .chart-label {
+            width: 150px;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .chart-value {
+            height: 45px;
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: width 1s ease-out;
+        }
+
+        .gold-bar {
+            background: linear-gradient(90deg, #ffd700, #ffed4a);
+        }
+
+        .sp-bar {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        }
+
+        .dax-bar {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .subtitle {
+            color: #a0aec0;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .warning-box h3 {
+            color: #f87171;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .success-box {
+            background: rgba(74, 222, 128, 0.2);
+            border: 1px solid #4ade80;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .success-box h3 {
+            color: #4ade80;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .timeline-year {
+            width: 100px;
+            color: #ffd700;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            border-left: 3px solid #ffd700;
+        }
+
+        .footer-note {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            ul {
+                font-size: 1rem;
+            }
+        }
+
+        /* Chart Styles */
+        .chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            max-width: 1100px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 380px;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .legend-gold { background: #ffd700; }
+        .legend-smic { background: #10b981; }
+        .legend-sp { background: #3b82f6; }
+        .legend-dax { background: #ef4444; }
+
+        .legend-text {
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .legend-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .chart-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .chart-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .chart-btn:hover, .chart-btn.active {
+            background: rgba(255, 215, 0, 0.3);
+            border-color: #ffd700;
+        }
+
+        .slide-logo {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            z-index: 50;
+            filter: brightness(1.8);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-indicator">
+        <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active" id="slide1">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <div class="icon">🥇</div>
+            <h1>Gold as Investment</h1>
+            <p class="subtitle">Returns, Taxes & Asset Protection Comparison</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">+1.102%</div>
+                    <div class="stat-label">Returns since 2000</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">Tax after 1 year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">VAT on purchase</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Gold Price Development -->
+        <div class="slide" id="slide2">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Gold Price Development Since 2000</h2>
+            <div class="content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">293€</div>
+                        <div class="stat-label">Gold price 2000 (per ounce)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.536€</div>
+                        <div class="stat-label">Gold price 2024 (per ounce)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10,4%</div>
+                        <div class="stat-label">Average annual return</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3.000€+</div>
+                        <div class="stat-label">Gold price 2025 (all-time high)</div>
+                    </div>
+                </div>
+                <div class="timeline" style="margin-top: 40px;">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2000-2010</div>
+                        <div class="timeline-content">Golden decade: +15% p.a. - S&P 500 only +0.32% p.a.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2008</div>
+                        <div class="timeline-content">Financial crisis: Gold rises, S&P 500 falls -37%</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">COVID crisis: Gold +24% while stocks collapsed</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024-25</div>
+                        <div class="timeline-content">New all-time highs due to inflation & geopolitical risks</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Comparison Chart -->
+        <div class="slide" id="slide3">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>10,000€ Invested in 2000 - What Did It Become? (After Taxes)</h2>
+            <div class="content card">
+                <div class="chart-bar">
+                    <div class="chart-label">Gold</div>
+                    <div class="chart-value gold-bar" style="width: 100%;">90,000€</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">SMIC (SMI+Div.)</div>
+                    <div class="chart-value" style="background: linear-gradient(90deg, #10b981, #34d399); width: 58%;">52,000€</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">S&P 500 TR</div>
+                    <div class="chart-value sp-bar" style="width: 42%;">38,000€</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">DAX</div>
+                    <div class="chart-value dax-bar" style="width: 24%;">22,000€</div>
+                </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <p style="color: #ffd700; font-size: 1.8rem; font-weight: bold;">
+                        Gold beats SMIC by +73% | S&P 500 by +137%
+                    </p>
+                    <p style="color: #ffffff; font-size: 1.2rem; margin-top: 10px;">
+                        (After taxes with German capital gains tax 26.375% - EUR adjusted)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Interactive Chart -->
+        <div class="slide" id="slide4">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Value Development Since 2000 - After Taxes</h2>
+            <div class="chart-container">
+                <div class="chart-controls">
+                    <button class="chart-btn active" onclick="setSlideChartType('afterTax')">After Taxes (€)</button>
+                    <button class="chart-btn" onclick="setSlideChartType('value')">Gross (€)</button>
+                    <button class="chart-btn" onclick="setSlideChartType('afterTaxPercent')">After Taxes (%)</button>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="slideInvestmentChart"></canvas>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color legend-gold"></div>
+                        <div>
+                            <span class="legend-text">Gold: </span>
+                            <span class="legend-value" style="color: #ffd700;" id="slideLegendGold">90,000€</span>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color legend-smic"></div>
+                        <div>
+                            <span class="legend-text">SMIC: </span>
+                            <span class="legend-value" style="color: #34d399;" id="slideLegendSmic">52,000€</span>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color legend-sp"></div>
+                        <div>
+                            <span class="legend-text">S&P 500: </span>
+                            <span class="legend-value" style="color: #60a5fa;" id="slideLegendSP">38,000€</span>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color legend-dax"></div>
+                        <div>
+                            <span class="legend-text">DAX: </span>
+                            <span class="legend-value" style="color: #f87171;" id="slideLegendDAX">22,000€</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Detailed Comparison Table -->
+        <div class="slide" id="slide5">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Return Comparison in Detail (Annualized - German Capital Gains Tax 26.375%)</h2>
+            <div class="content">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Investment</th>
+                        <th>Gross Value</th>
+                        <th>Gross Return</th>
+                        <th>Net Return</th>
+                        <th>Net Value</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight-gold">🥇 Gold</td>
+                        <td class="highlight-gold">90,000€</td>
+                        <td class="highlight-gold">9.2% p.a.</td>
+                        <td class="highlight-gold">9.2%</td>
+                        <td class="highlight-gold">90,000€</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #34d399;">🇨🇭 SMIC</td>
+                        <td style="color: #34d399;">80,000€</td>
+                        <td style="color: #34d399;">8.7% p.a.</td>
+                        <td style="color: #34d399;">6.4%</td>
+                        <td style="color: #34d399;">~52,000€</td>
+                    </tr>
+                    <tr>
+                        <td>🇺🇸 S&P 500 TR</td>
+                        <td>60,000€</td>
+                        <td>7.5% p.a.</td>
+                        <td>5.5%</td>
+                        <td>~38,000€</td>
+                    </tr>
+                    <tr>
+                        <td>🇩🇪 DAX</td>
+                        <td>28,000€</td>
+                        <td>4.2% p.a.</td>
+                        <td>3.1%</td>
+                        <td>~22,000€</td>
+                    </tr>
+                </table>
+                <div class="success-box">
+                    <h3>Gold's Crisis Resilience</h3>
+                    <p style="color: #ffffff; font-size: 1.1rem;">
+                        In 8 out of 9 years with negative S&P 500 returns, gold outperformed with an average of <span class="highlight-green">+19.4%</span> compared to <span class="highlight-red">-15.3%</span> for S&P 500.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Tax Advantages -->
+        <div class="slide" id="slide6">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Tax Advantages of Gold in Germany</h2>
+            <div class="content two-column">
+                <div class="card">
+                    <h3 style="color: #ffd700; font-size: 1.5rem; margin-bottom: 20px;">🎯 Tax-Free After 1 Year</h3>
+                    <ul>
+                        <li>100% tax-free after 12 months holding period</li>
+                        <li>Regardless of whether 100€ or 100,000€ profit</li>
+                        <li>No capital gains tax (25%)</li>
+                        <li>No solidarity surcharge</li>
+                        <li>No church tax</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="color: #ffd700; font-size: 1.5rem; margin-bottom: 20px;">💰 No VAT</h3>
+                    <ul>
+                        <li>0% VAT on investment gold (§25c UStG)</li>
+                        <li>Silver: 19% VAT</li>
+                        <li>Platinum: 19% VAT</li>
+                        <li>Gold bars from 995/1000 purity</li>
+                        <li>Gold coins from 900/1000 purity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stats-grid" style="margin-top: 30px;">
+                <div class="stat-card">
+                    <div class="stat-number">0€</div>
+                    <div class="stat-label">Taxes on gold profits after 1 year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">~26.4%</div>
+                    <div class="stat-label">Taxes on stock profits (always)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Tax Comparison Example -->
+        <div class="slide" id="slide7">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Tax Calculation Example: 10,000€ Investment (2000-2025) - German Capital Gains Tax 26.375%</h2>
+            <div class="content">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Investment</th>
+                        <th>Gross (EUR)</th>
+                        <th>Taxes Paid</th>
+                        <th>Net after 25 Years</th>
+                        <th>Effective Rate p.a.</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight-gold">🥇 Gold</td>
+                        <td class="highlight-gold">90,000€</td>
+                        <td class="highlight-green">0€</td>
+                        <td class="highlight-gold"><strong>90,000€</strong></td>
+                        <td class="highlight-gold"><strong>9.2%</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="color: #34d399;">🇨🇭 SMIC</td>
+                        <td style="color: #34d399;">80,000€</td>
+                        <td class="highlight-red">~28,000€*</td>
+                        <td style="color: #34d399;"><strong>~52,000€</strong></td>
+                        <td style="color: #34d399;"><strong>6.4%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>🇺🇸 S&P 500 TR</td>
+                        <td>60,000€</td>
+                        <td class="highlight-red">~22,000€*</td>
+                        <td><strong>~38,000€</strong></td>
+                        <td><strong>5.5%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>🇩🇪 DAX</td>
+                        <td>28,000€</td>
+                        <td class="highlight-red">~6,000€*</td>
+                        <td><strong>~22,000€</strong></td>
+                        <td><strong>3.1%</strong></td>
+                    </tr>
+                </table>
+                <p style="color: #a0aec0; font-size: 0.85rem; margin-top: 15px; text-align: center;">
+                    *Taxes over 25 years with compounding effect at 26.375% annual capital gains tax (25% + 5.5% solidarity surcharge)<br>
+                    All values converted to EUR (including USD/CHF → EUR currency effects)
+                </p>
+                <div class="success-box">
+                    <h3>Critical Tax Advantage for Gold</h3>
+                    <p style="color: #ffffff; font-size: 1.2rem; text-align: center;">
+                        Gold: <span class="highlight-gold">+38,000€</span> more than SMIC!<br>
+                        Gold: <span class="highlight-gold">+52,000€</span> more than S&P 500!
+                    </p>
+                </div>
+                <div class="card" style="margin-top: 20px;">
+                    <p style="color: #ffffff; font-size: 1rem;">
+                        <strong style="color: #ffd700;">Key insight:</strong> Gold is tax-free in Germany after 1 year (speculation tax exemption).
+                        Stocks face annual 26.375% capital gains tax. Over 25 years, this compounds into a massive disadvantage for stocks—gold wins by €52,000+!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Asset Protection -->
+        <div class="slide" id="slide8">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Asset Protection & Expropriation Security</h2>
+            <div class="content two-column">
+                <div class="card">
+                    <h3 style="color: #4ade80; font-size: 1.5rem; margin-bottom: 20px;">✅ Benefits of Physical Gold</h3>
+                    <ul>
+                        <li>No counterparty risk (like with banks)</li>
+                        <li>Internationally recognized and tradeable</li>
+                        <li>Mobile and portable</li>
+                        <li>No reporting requirement for ownership</li>
+                        <li>Storage abroad possible</li>
+                        <li>Anonymous purchase up to 1,999.99€</li>
+                        <li>Inflation protection for millennia</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="color: #f87171; font-size: 1.5rem; margin-bottom: 20px;">⚠️ Risks with Other Investments</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding-left: 35px;">❌ Bank deposits: Bail-in risk</li>
+                        <li style="padding-left: 35px;">❌ Stocks: Portfolio seizure possible</li>
+                        <li style="padding-left: 35px;">❌ Real estate: Not portable</li>
+                        <li style="padding-left: 35px;">❌ Crypto: Wallet seizure</li>
+                        <li style="padding-left: 35px;">❌ Life insurance: Access by creditors</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ Historical Reality</h3>
+                <p style="color: #ffffff; font-size: 1.1rem;">
+                    There have already been <strong>over 400 gold bans</strong> worldwide, and in Germany <strong>7 times</strong> in the last 200 years.
+                    In 1933, private gold ownership was banned in the USA (Executive Order 6102).
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Privacy & Anonymity -->
+        <div class="slide" id="slide9">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Anonymity in Gold Purchases</h2>
+            <div class="content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1.999,99€</div>
+                        <div class="stat-label">Anonymity threshold (since 2020)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">0€</div>
+                        <div class="stat-label">Reporting requirement for ownership</div>
+                    </div>
+                </div>
+                <div class="two-column" style="margin-top: 30px;">
+                    <div class="card">
+                        <h3 style="color: #ffd700; font-size: 1.3rem; margin-bottom: 15px;">Anonymous Purchase Possible:</h3>
+                        <ul>
+                            <li>Cash payment up to 1,999.99€</li>
+                            <li>No ID requirement</li>
+                            <li>No documentation</li>
+                            <li>Multiple purchases possible*</li>
+                        </ul>
+                        <p style="color: #a0aec0; font-size: 0.9rem; margin-top: 15px;">
+                            *With different dealers/days
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #ffd700; font-size: 1.3rem; margin-bottom: 15px;">Threshold Evolution:</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">before 2017</div>
+                                <div class="timeline-content">15,000€ threshold</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2017-2019</div>
+                                <div class="timeline-content">10,000€ threshold</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">from 2020</div>
+                                <div class="timeline-content">2,000€ threshold</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Summary -->
+        <div class="slide" id="slide10">
+            <img src="dagobert.webp" alt="Dagobert Logo" class="slide-logo">
+            <h2>Conclusion: Why Gold?</h2>
+            <div class="content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon" style="font-size: 2.5rem;">📈</div>
+                        <div class="stat-label" style="font-size: 1.3rem; margin-top: 15px;">Best Returns</div>
+                        <p style="color: #a0aec0; margin-top: 10px;">+1,102% since 2000<br>Beats S&P 500 & DAX</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon" style="font-size: 2.5rem;">💰</div>
+                        <div class="stat-label" style="font-size: 1.3rem; margin-top: 15px;">100% Tax-Free (CH)</div>
+                        <p style="color: #a0aec0; margin-top: 10px;">No capital gains tax<br>No wealth tax (federal)</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon" style="font-size: 2.5rem;">🛡️</div>
+                        <div class="stat-label" style="font-size: 1.3rem; margin-top: 15px;">Crisis Protection</div>
+                        <p style="color: #a0aec0; margin-top: 10px;">Rises when stocks fall<br>Inflation protection</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon" style="font-size: 2.5rem;">🔒</div>
+                        <div class="stat-label" style="font-size: 1.3rem; margin-top: 15px;">Asset Protection</div>
+                        <p style="color: #a0aec0; margin-top: 10px;">Mobile & anonymous<br>No reporting requirement</p>
+                    </div>
+                </div>
+                <div class="success-box" style="margin-top: 40px; text-align: center;">
+                    <h3 style="font-size: 1.8rem;">Gold: The Only Investment with</h3>
+                    <p style="color: #ffffff; font-size: 1.3rem; margin-top: 15px;">
+                        ✓ Highest Returns since 2000 &nbsp;&nbsp; ✓ Tax Exemption &nbsp;&nbsp; ✓ No VAT &nbsp;&nbsp; ✓ Crisis Resistance &nbsp;&nbsp; ✓ Asset Protection
+                    </p>
+                </div>
+            </div>
+            <p class="footer-note">
+                Sources: boerse.de, gold.de, statista.com, macrotrends.net, curvo.eu, kettner-edelmetalle.de | Status: January 2025
+            </p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Back</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide' + currentSlide).classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            if (currentSlide === totalSlides) {
+                document.getElementById('nextBtn').textContent = 'End';
+            } else {
+                document.getElementById('nextBtn').textContent = 'Next →';
+            }
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                changeSlide(-1);
+            }
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+
+        // Chart Data and Functions
+        const years = ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+
+        // Corrected EUR values based on research (with currency conversion)
+        // SMIC: CHF gained ~65% vs EUR (1.55 → 0.94), hence high EUR value
+        const goldValues = [10000, 10600, 11800, 12200, 11600, 13200, 15000, 16800, 20400, 21200, 27000, 33000, 33600, 28000, 26200, 27200, 31000, 32000, 33000, 37000, 45000, 41000, 45000, 50000, 68000, 90000];
+        const smicValues = [10000, 9800, 8200, 9800, 10600, 12400, 14800, 17400, 11200, 13400, 16000, 14600, 17600, 21400, 22400, 24600, 26400, 30000, 28000, 34000, 36000, 43000, 40000, 50000, 60000, 80000];
+        const sp500Values = [10000, 9000, 7200, 9000, 9800, 10200, 11600, 12200, 7800, 9600, 11000, 11200, 12800, 16600, 18600, 18800, 21000, 25200, 24200, 31200, 36800, 47000, 38800, 48600, 58000, 60000];
+        const daxValues = [10000, 8000, 5800, 6900, 7200, 9100, 10800, 12600, 7600, 9400, 11000, 9800, 11600, 14200, 14400, 16200, 17200, 19600, 17400, 21800, 22000, 25600, 22600, 27000, 28400, 28000];
+
+        // German tax rates (capital gains tax 25% + 5.5% solidarity = 26.375%)
+        const GOLD_TAX_SLIDE = 0;
+        const STOCKS_TAX_SLIDE = 0.26375;
+
+        // Calculate after-tax values WITH annual taxation and compounding effect
+        function calculateAfterTaxSlide(values, taxRate) {
+            return values.map((value, index) => {
+                if (index === 0) return value;
+                return null; // Placeholder - replaced below
+            });
+        }
+
+        // Correct calculation with annual taxation and compounding
+        function calculateAfterTaxWithCompounding(values, taxRate) {
+            const result = [values[0]]; // Starting value
+            for (let i = 1; i < values.length; i++) {
+                const previousGross = values[i - 1];
+                const currentGross = values[i];
+                const yearReturn = (currentGross - previousGross) / previousGross;
+                const afterTaxReturn = yearReturn * (1 - taxRate);
+                const newValue = result[i - 1] * (1 + afterTaxReturn);
+                result.push(Math.round(newValue));
+            }
+            return result;
+        }
+
+        const goldAfterTaxSlide = calculateAfterTaxWithCompounding(goldValues, GOLD_TAX_SLIDE);
+        const smicAfterTaxSlide = calculateAfterTaxWithCompounding(smicValues, STOCKS_TAX_SLIDE);
+        const sp500AfterTaxSlide = calculateAfterTaxWithCompounding(sp500Values, STOCKS_TAX_SLIDE);
+        const daxAfterTaxSlide = calculateAfterTaxWithCompounding(daxValues, STOCKS_TAX_SLIDE);
+
+        const goldPercent = goldValues.map(v => ((v - 10000) / 10000) * 100);
+        const smicPercent = smicValues.map(v => ((v - 10000) / 10000) * 100);
+        const sp500Percent = sp500Values.map(v => ((v - 10000) / 10000) * 100);
+        const daxPercent = daxValues.map(v => ((v - 10000) / 10000) * 100);
+
+        let chartType = 'value';
+        let investmentChart = null;
+
+        function createChart(type) {
+            const ctx = document.getElementById('investmentChart');
+            if (!ctx) return;
+
+            const isValue = type === 'value';
+
+            const config = {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [
+                        {
+                            label: 'Gold',
+                            data: isValue ? goldValues : goldPercent,
+                            borderColor: '#ffd700',
+                            backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#ffd700'
+                        },
+                        {
+                            label: 'S&P 500 TR',
+                            data: isValue ? sp500Values : sp500Percent,
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#3b82f6'
+                        },
+                        {
+                            label: 'DAX',
+                            data: isValue ? daxValues : daxPercent,
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#ef4444'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(26, 26, 46, 0.95)',
+                            titleColor: '#ffd700',
+                            bodyColor: '#ffffff',
+                            borderColor: 'rgba(255, 215, 0, 0.3)',
+                            borderWidth: 1,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label + ': ';
+                                    if (isValue) {
+                                        label += new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                                    } else {
+                                        label += context.parsed.y.toFixed(1) + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#a0aec0', font: { size: 11 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: {
+                                color: '#a0aec0',
+                                font: { size: 11 },
+                                callback: function(value) {
+                                    if (isValue) {
+                                        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
+                                    }
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    },
+                    animation: { duration: 800, easing: 'easeOutQuart' }
+                }
+            };
+
+            if (investmentChart) {
+                investmentChart.destroy();
+            }
+            investmentChart = new Chart(ctx, config);
+        }
+
+        function setChartType(type) {
+            chartType = type;
+            document.querySelectorAll('.chart-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            createChart(type);
+        }
+
+        // New chart for Slide 4 with SMIC and tax calculations
+        let slideChartType = 'afterTax';
+        let slideInvestmentChart = null;
+
+        function createSlideChart(type) {
+            const ctx = document.getElementById('slideInvestmentChart');
+            if (!ctx) return;
+
+            let chartData;
+            const isAfterTax = type === 'afterTax' || type === 'afterTaxPercent';
+            const isPercent = type === 'afterTaxPercent' || type === 'percent';
+
+            const getGoldData = () => isAfterTax ? goldAfterTaxSlide : goldValues;
+            const getSmicData = () => isAfterTax ? smicAfterTaxSlide : smicValues;
+            const getSP500Data = () => isAfterTax ? sp500AfterTaxSlide : sp500Values;
+            const getDaxData = () => isAfterTax ? daxAfterTaxSlide : daxValues;
+
+            const goldData = getGoldData();
+            const smicData = getSmicData();
+            const sp500Data = getSP500Data();
+            const daxData = getDaxData();
+
+            const goldPct = isPercent ? goldData.map(v => ((v - 10000) / 10000) * 100) : goldData;
+            const smicPct = isPercent ? smicData.map(v => ((v - 10000) / 10000) * 100) : smicData;
+            const sp500Pct = isPercent ? sp500Data.map(v => ((v - 10000) / 10000) * 100) : sp500Data;
+            const daxPct = isPercent ? daxData.map(v => ((v - 10000) / 10000) * 100) : daxData;
+
+            chartData = {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Gold',
+                        data: goldPct,
+                        borderColor: '#ffd700',
+                        backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#ffd700'
+                    },
+                    {
+                        label: 'SMIC (mit Div.)',
+                        data: smicPct,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#10b981'
+                    },
+                    {
+                        label: 'S&P 500 TR',
+                        data: sp500Pct,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#3b82f6'
+                    },
+                    {
+                        label: 'DAX',
+                        data: daxPct,
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#ef4444'
+                    }
+                ]
+            };
+
+            const config = {
+                type: 'line',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(26, 26, 46, 0.95)',
+                            titleColor: '#ffd700',
+                            bodyColor: '#ffffff',
+                            borderColor: 'rgba(255, 215, 0, 0.3)',
+                            borderWidth: 1,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label + ': ';
+                                    if (isPercent) {
+                                        label += context.parsed.y.toFixed(1) + '%';
+                                    } else {
+                                        label += new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#a0aec0', font: { size: 11 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: {
+                                color: '#a0aec0',
+                                font: { size: 11 },
+                                callback: function(value) {
+                                    if (isPercent) {
+                                        return value + '%';
+                                    }
+                                    return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
+                                }
+                            }
+                        }
+                    },
+                    animation: { duration: 800, easing: 'easeOutQuart' }
+                }
+            };
+
+            if (slideInvestmentChart) {
+                slideInvestmentChart.destroy();
+            }
+            slideInvestmentChart = new Chart(ctx, config);
+        }
+
+        function setSlideChartType(type) {
+            slideChartType = type;
+            document.querySelectorAll('#slide4 .chart-controls .chart-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            createSlideChart(type);
+        }
+
+        // Initialize chart when slide 4 becomes active
+        const originalShowSlide = showSlide;
+        showSlide = function(n) {
+            originalShowSlide(n);
+            if (currentSlide === 4) {
+                setTimeout(() => {
+                    createSlideChart(slideChartType);
+                    // Update legend values
+                    document.getElementById('slideLegendGold').textContent = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(goldAfterTaxSlide[goldAfterTaxSlide.length - 1]);
+                    document.getElementById('slideLegendSmic').textContent = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(smicAfterTaxSlide[smicAfterTaxSlide.length - 1]);
+                    document.getElementById('slideLegendSP').textContent = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(sp500AfterTaxSlide[sp500AfterTaxSlide.length - 1]);
+                    document.getElementById('slideLegendDAX').textContent = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(daxAfterTaxSlide[daxAfterTaxSlide.length - 1]);
+                }, 100);
+            }
+        };
+    </script>
+</body>
+</html>

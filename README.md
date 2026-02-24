@@ -1,6 +1,6 @@
 # Bekers Welt Dashboard
 
-Ein modernes, responsives Web-Dashboard zur Verwaltung und Übersicht von verschiedenen Webdiensten mit Echtzeitwetterdaten.
+Ein modernes, responsives Web-Dashboard zur zentralen Verwaltung und Übersicht von verschiedenen Webdiensten mit Echtzeitwetterdaten, organisiert in übersichtlichen Kategorien.
 
 ![Bekers Welt Dashboard Screenshot](html/screenshot.png)
 
@@ -8,14 +8,53 @@ Ein modernes, responsives Web-Dashboard zur Verwaltung und Übersicht von versch
 
 Das Dashboard bietet eine zentrale Übersicht über folgende Funktionen:
 
-- **Service-Verzeichnis**: Links zu verschiedenen gehosteten Diensten (Chess, Tetris, Sudoku, Portainer, MQTT Explorer, NPM, GoAccess, Video-Konferenz, etc.)
+- **Kategorisierte Service-Übersicht**: Links zu Webdiensten, organisiert in 6 thematischen Rahmen
 - **Wetterdaten**: Echtzeitinformationen zum Wetter in Rebstein (Temperatur, Luftfeuchtigkeit, Luftdruck, Windgeschwindigkeit, Bewölkung)
 - **Webcam-Integration**: Live-Streams von der Säntis 360° Panorama Webcam und Hoher Kasten Webcam
 - **Suchfunktion**: Schnelle Filterung der verfügbaren Dienste
 - **Dark Mode**: Umschalter zwischen hellem und dunklem Design-Theme
 - **Responsive Design**: Funktioniert auf Desktop, Tablet und Mobile-Geräten
 - **Anime-Wellen-Animation**: Photorealistisch animierte Hintergrundelemente mit natürlichem Wasserwellen-Effekt
-- **Spiele-Integration**: Eingebettete Spiele wie Sudoku (mit Hover-Animation), Chess und Tetris
+- **Cloud-Clip-Pfade**: Jede Service-Karte hat eine einzigartige Wolken-Form
+
+## Service-Kategorien
+
+Das Dashboard organisiert alle Services in 6 Rahmen, die responsiv nebeneinander angeordnet sind:
+
+### 🏠 Haushalt
+- **Jitsi Video Conference**: Video-Konferenz-Lösung
+- **Shell Cloud Control**: Shelly Smart Home Steuerung
+- **MQTT Explorer**: MQTT Broker und Message Management
+- **Home Server**: Zentrale Home-Automation und Server-Management
+
+### 📰 Nachrichten
+- **News**: Nachrichten-Aggregator
+- **Wetter**: Wettervorhersage und aktuelle Wetterdaten
+- **Wetter Archive**: Historische Wetterdaten und Statistiken
+- **Krone**: Österreichische Nachrichtenplattform
+
+### 🎮 Spiele
+- **Chess**: Schachspiel mit Online-Multiplayer
+- **Tetris**: Klassisches Tetris-Game
+- **Sudoku**: Sudoku-Rätsel mit Hover-Rotations-Animation
+
+### 🔬 Wissenschaft
+- **Newton**: Newton-Fraktal Explorer (AI Studio App)
+- **Mandelbrot Explorer**: Mandelbrot-Set Visualization (AI Studio App)
+- **Covid Hoax**: Statistische Analyse mit GitHub-Integration
+- **GitHub Helmut**: GitHub-Profil und Repositories
+- **World IQ**: Internationale Intelligenzstatistiken
+
+### ⚙️ Server-Verwaltung
+- **GoAccess**: Website-Traffic Analytics und Log-Analyse
+- **Netdata**: Detaillierte System-Metriken und Monitoring
+- **Glances**: System-Monitoring und Ressourcen-Überwachung
+- **Portainer**: Docker Container Management
+- **NPM**: Nginx Proxy Manager für Reverse Proxy und SSL-Management
+
+### 🛠️ Werkzeuge
+- **Commodities**: Rohstoffpreise und Marktdaten
+- **PDF Reorder**: PDF-Seiten-Reordering und -Verarbeitung
 
 ## Wie funktioniert die App?
 
@@ -23,13 +62,38 @@ Das Dashboard bietet eine zentrale Übersicht über folgende Funktionen:
 
 Die App ist eine **Single Page Application (SPA)** mit folgender Struktur:
 
-1. **HTML-Struktur**: Semantisches HTML5 mit flexiblem Grid-Layout für die Service-Karten
+1. **HTML-Struktur**: Semantisches HTML5 mit CSS Grid Layout für die Service-Karten
 2. **Styling**: CSS mit CSS-Variablen für Theme-Management, Gradient-Backgrounds, Wave-Animationen
 3. **JavaScript**: Vanilla JavaScript für:
    - Theme-Verwaltung (Light/Dark Mode mit LocalStorage-Persistierung)
-   - Suchfunktion mit Live-Filter
+   - Suchfunktion mit Live-Filter über alle Services
    - Wetterdaten-Abrufen und -Anzeige
    - Card-Animationen mit gestaffelten Verzögerungen
+
+### Layout-System
+
+```
+┌────────────────────────────────────────────────────┐
+│         Bekers Welt Dashboard                      │
+├────────────────────────────────────────────────────┤
+│ Main Grid (10 Cards): Alle Service-Karten         │
+├────────────────────────────────────────────────────┤
+│ Frames Container (4 Spalten, responsive):          │
+│ ┌──────────────┬──────────────┬──────────────┬──────┐
+│ │ 🏠 Haushalt  │ 📰 Nach-      │ 🎮 Spiele    │ 🔬   │
+│ │              │ richten       │              │ Wiss. │
+│ ├──────────────┼──────────────┼──────────────┼──────┤
+│ │ ⚙️ Server-   │ 🛠️ Werk-      │              │      │
+│ │ Verwaltung   │ zeuge         │              │      │
+│ └──────────────┴──────────────┴──────────────┴──────┘
+├────────────────────────────────────────────────────┤
+│ Weather & Webcam Section                           │
+│ ┌──────────────┬──────────────┬──────────────┐    │
+│ │ Weather      │ Hoher Kasten │ Säntis 360°  │    │
+│ │ Rebstein     │ Webcam       │ Webcam       │    │
+│ └──────────────┴──────────────┴──────────────┘    │
+└────────────────────────────────────────────────────┘
+```
 
 ### Datenfluss
 
@@ -49,9 +113,10 @@ Die App ist eine **Single Page Application (SPA)** mit folgender Struktur:
 
 ### Animations-System
 
-- **Card Wave**: Karten in jeder Reihe schwingen wellenförmig mit gestaffelten Verzögerungen
-- **Wave Background**: Animierte SVG-Wellen-Grafiken im Hintergrund
+- **Card Float**: Karten schweben sanft mit wellenförmigen Bewegungen
+- **Wave Background**: Animierte SVG-Wellen-Grafiken im Hintergrund (3 Ebenen)
 - **Hover-Effekte**: Sanfte Übergänge und Erhöhungseffekt beim Hovern
+- **Cloud Clip-Paths**: Jede Karte hat eine SVG-Wolken-Form für visuellen Appeal
 
 ## Frameworks und APIs
 
@@ -60,7 +125,7 @@ Die App ist eine **Single Page Application (SPA)** mit folgender Struktur:
 | Framework | Version | Zweck |
 |-----------|---------|-------|
 | **jQuery** | 1.7.1 | Geladen aber minimal genutzt (hauptsächlich Vanilla JS) |
-| **Font Awesome** | 6.4.0 | Icon-Bibliothek für Symbole (z.B. PDF Sort-Icon) |
+| **Font Awesome** | 6.4.0 | Icon-Bibliothek für Symbole |
 
 ### Externe APIs
 
@@ -84,46 +149,15 @@ GET /v1/forecast?
 
 **WMO Weather Codes Mapping**: Die App konvertiert WMO-Wettercodes in deutsche Beschreibungen und Emoji-Icons (z.B. 0 = Klar ☀️, 3 = Bedeckt ☁️, 65 = Starker Regen ⛈️)
 
-### Gehostete Services
-
-Die App verlinkt auf verschiedene Dienste, organisiert nach Kategorie:
-
-**Spiele & Unterhaltung:**
-- **Chess**: Schachspiel mit Online-Multiplayer
-- **Tetris**: Klassisches Tetris-Game
-- **Sudoku**: Sudoku-Rätsel mit Hover-Rotations-Animation
-
-**System & Infrastruktur:**
-- **Glances/BTOP**: System-Monitoring und Ressourcen-Überwachung
-- **Portainer**: Docker Container Management
-- **Netdata**: Detaillierte System-Metriken und Monitoring
-- **GoAccess**: Website-Traffic Analytics und Log-Analyse
-
-**Netzwerk & Verwaltung:**
-- **MQTT Explorer**: MQTT Broker und Message Management
-- **NPM (Nginx Proxy Manager)**: Reverse Proxy und SSL-Zertifikat Management
-- **Video-Konferenz**: Jitsi-basierte Video-Konferenz-Lösung
-
-**Informationen & Daten:**
-- **News**: Nachrichten-Aggregator
-- **Wetter**: Wettervorhersage und aktuelle Wetterdaten
-- **Wetter Archive**: Historische Wetterdaten und Statistiken
-- **Commodities**: Rohstoffpreise und Marktdaten
-- **IQ Statistik**: Internationale Intelligenzstatistiken
-
-**Dateiverarbeitung:**
-- **PDF Reorder**: PDF-Seiten-Reordering und -Verarbeitung
-- **Home Server**: Zentrale Home-Automation und Server-Management
-
 ## Technische Eigenschaften
 
 ### CSS-Features
 
-- **CSS Grid & Flexbox**: Responsives Layout
+- **CSS Grid & Flexbox**: Responsives Layout mit Frames Container
 - **CSS-Variablen**: Zentrale Theme-Verwaltung (Light/Dark Mode)
 - **CSS Gradients**: Farbtransitionen und Background-Effekte
 - **CSS Animations**: Keyframe-Animationen für Wave und Card-Bewegungen
-- **SVG-Grafiken**: Inline SVG für verschiedene Service-Icons
+- **SVG-Grafiken**: Inline SVG für Service-Icons und Cloud Clip-Paths
 
 ### Browser-APIs
 
@@ -134,8 +168,8 @@ Die App verlinkt auf verschiedene Dienste, organisiert nach Kategorie:
 
 ### Responsive Breakpoints
 
-- **Mobile** (≤768px): Angepasste Kartengrößen, gestapeltes Layout
-- **Desktop** (>768px): Multi-Column Grid-Layout
+- **Mobile** (≤768px): Angepasste Kartengrößen, gestapeltes Frame-Layout
+- **Desktop** (>768px): 4-spaltige Grid-Layout für Rahmen
 
 ## Performance
 
@@ -206,7 +240,7 @@ Die App funktioniert mit Standardeinstellungen out-of-the-box. Falls Anpassungen
 
 **Wetter-Lokation ändern** (in index.html):
 ```javascript
-// Zeile ~1107-1108
+// Zeile ~1263-1264
 const rebsteinLat = 47.4167;  // Breitengrad
 const rebsteinLon = 9.3167;   // Längengrad
 ```
@@ -222,11 +256,11 @@ Bearbeite die CSS-Variablen im `<style>`-Tag (Zeilen ~15-61):
 ```
 
 **Services hinzufügen/entfernen**:
-Bearbeite die Service-Links im `<div class="grid">` Bereich (Zeilen ~591-1040) der index.html
+Bearbeite die Service-Links im `<div class="grid">` Bereich oder in den entsprechenden Rahmen-Divs der index.html
 
 ### Performance-Optimierung
 
-- **Wetter-Aktualisierungsintervall**: 600000ms (10 Minuten) - anpassbar in Zeile ~1256
+- **Wetter-Aktualisierungsintervall**: 600000ms (10 Minuten) - anpassbar in Zeile ~1467
 - **Browser-Caching**: Nutze .htaccess oder Webserver-Header
 - **CDN**: Externe Resources (Font Awesome) werden vom CDN geladen
 
@@ -235,7 +269,7 @@ Bearbeite die Service-Links im `<div class="grid">` Bereich (Zeilen ~591-1040) d
 **Wetterdaten werden nicht angezeigt:**
 - Überprüfe Browser-Konsole (F12) auf Fehler
 - Stelle sicher, dass die Open-Meteo API erreichbar ist
-- Prüfe ob CORS-Fehler vorliegen (sollte nicht der Fall sein mit Open-Meteo)
+- Prüfe ob CORS-Fehler vorliegen
 
 **Webcams zeigen schwarzen Bildschirm:**
 - Überprüfe Internetverbindung
@@ -246,6 +280,11 @@ Bearbeite die Service-Links im `<div class="grid">` Bereich (Zeilen ~591-1040) d
 - Überprüfe ob LocalStorage im Browser aktiviert ist
 - Für Private-Browsing Mode: Theme wird nur in der Sitzung gespeichert
 
+**Service-Links funktionieren nicht:**
+- Stelle sicher, dass die entsprechenden Services im Netzwerk erreichbar sind
+- Überprüfe Firewall-Regeln und Port-Freigaben
+- Verifiziere die Domain-Namen in der index.html
+
 ## Zukünftige Erweiterungen
 
 - Dynamische Service-Katalog-Verwaltung (JSON-Config)
@@ -253,3 +292,4 @@ Bearbeite die Service-Links im `<div class="grid">` Bereich (Zeilen ~591-1040) d
 - Lokalisierung für weitere Sprachen
 - Progressive Web App (PWA) Funktionalität
 - Service-Health-Indikatoren in Echtzeit
+- Benutzerdefinierte Frame-Anordnung (Drag & Drop)
