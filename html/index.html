@@ -98,7 +98,7 @@
             background-position: 0 bottom;
             pointer-events: none;
             z-index: 1;
-            animation: wave-motion 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+            animation: wave-motion 2s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
         }
 
         body::after {
@@ -114,7 +114,7 @@
             background-position: 0 bottom;
             pointer-events: none;
             z-index: 0;
-            animation: wave-motion-reverse 7s cubic-bezier(0.45, 0.0, 0.25, 1) infinite;
+            animation: wave-motion-reverse 3.5s cubic-bezier(0.45, 0.0, 0.25, 1) infinite;
         }
 
         .container::before {
@@ -130,7 +130,7 @@
             background-position: 0 bottom;
             pointer-events: none;
             z-index: -1;
-            animation: wave-motion-fast 4s cubic-bezier(0.35, 0.0, 0.3, 1) infinite;
+            animation: wave-motion-fast 2s cubic-bezier(0.35, 0.0, 0.3, 1) infinite;
         }
 
         .container {
@@ -232,7 +232,7 @@
             position: relative;
             overflow: hidden;
             /* Crucial for clip-path to work correctly */
-            animation: cardFloat 10s ease-in-out infinite;
+            animation: cardFloat 5s ease-in-out infinite;
             /* Increased duration for slow movement */
             animation-delay: calc(var(--card-index) * 0.1s);
         }
@@ -512,7 +512,7 @@
             border-radius: 8px;
             padding: 8px;
             text-align: center;
-            animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
+            animation: cardWave 3.5s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
             animation-delay: calc(var(--card-index) * 0.25s);
         }
 
@@ -651,7 +651,7 @@
             .card {
                 max-width: 100px;
                 padding: 8px;
-                animation: cardWave 7s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
+                animation: cardWave 3.5s cubic-bezier(0.45, 0.0, 0.55, 1) infinite;
                 animation-delay: calc(var(--card-index) * 0.25s);
             }
 
@@ -769,13 +769,13 @@
                 </a>
 
                 <!-- Wetter -->
-                <a href="http://wetter.bekerh.ddns.net" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
+                <a href="https://helmutqualtinger.github.io/WetterSymbol/" class="card" style="--card-index: 1; clip-path: url(#cloud2);"
                     target="_blank">
                     <div class="icon weather">
                         <img src="https://cdn-icons-png.flaticon.com/512/6485/6485580.png" alt="Weather Icon" style="width: 65px; height: 65px; object-fit: contain;">
                     </div>
                     <div class="card-title">Wetter</div>
-                    <div class="card-domain">wetter.bekerh.ddns.net</div>
+                    <div class="card-domain">helmutqualtinger.github.io</div>
                     <div class="status"><span class="status-dot"></span>Online</div>
                 </a>
 
@@ -954,6 +954,35 @@
                     </div>
                     <div class="card-title">Sudoku</div>
                     <div class="card-domain">sudoku.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+
+                <!-- Zaehlen -->
+                <a href="https://helmutqualtinger.github.io/Zaehlen/" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
+                    target="_blank">
+                    <div class="icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                            <text x="4"  y="52" font-size="34" opacity="0.5">🐐</text>
+                            <text x="16" y="52" font-size="34" opacity="0.7">🐐</text>
+                            <text x="28" y="52" font-size="34" opacity="1.0">🐐</text>
+                            <circle cx="66" cy="18" r="13" fill="#FF4757"/>
+                            <text x="66" y="23" font-size="16" font-weight="900" fill="white" text-anchor="middle">3</text>
+                        </svg>
+                    </div>
+                    <div class="card-title">Zählen</div>
+                    <div class="card-domain">helmutqualtinger.github.io</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+
+                <!-- Qualtinger -->
+                <a href="https://helmutqualtinger.github.io/Qualtinger/" class="card" style="--card-index: 4; clip-path: url(#cloud5);"
+                    target="_blank">
+                    <div class="icon">
+                        <img src="https://raw.githubusercontent.com/HelmutQualtinger/Qualtinger/main/qualtingerportraet.5005575.jpg"
+                            alt="Helmut Qualtinger" style="width: 65px; height: 65px; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <div class="card-title">Qualtinger</div>
+                    <div class="card-domain">helmutqualtinger.github.io</div>
                     <div class="status"><span class="status-dot"></span>Online</div>
                 </a>
             </div>
@@ -1216,6 +1245,18 @@
                     <div class="card-domain">helmutqualtinger.github.io</div>
                     <div class="status"><span class="status-dot"></span>Online</div>
                 </a>
+
+                <!-- Wolfram -->
+                <a href="https://helmutqualtinger.github.io/Wolfram-JS/Stephen-Wolfram-1.jpg" class="card" style="--card-index: 6; clip-path: url(#cloud7);"
+                    target="_blank">
+                    <div class="icon">
+                        <img src="https://helmutqualtinger.github.io/Wolfram-JS/Stephen-Wolfram-1.jpg"
+                            alt="Stephen Wolfram" style="width: 65px; height: 65px; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <div class="card-title">Wolfram</div>
+                    <div class="card-domain">helmutqualtinger.github.io</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
             </div>
         </div>
 
@@ -1410,8 +1451,38 @@
                     <div class="status"><span class="status-dot"></span>Online</div>
                 </a>
 
+                <!-- Tanken -->
+                <a href="http://tanken.bekerh.ddns.net" class="card" style="--card-index: 2; clip-path: url(#cloud3);"
+                    target="_blank">
+                    <div class="icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                            <!-- Zapfsäule Gehäuse -->
+                            <rect x="20" y="30" width="38" height="55" fill="#e0e0e0" stroke="#555" stroke-width="2.5" rx="4"/>
+                            <!-- Display/Fenster -->
+                            <rect x="25" y="35" width="28" height="16" fill="#1a1a2e" stroke="#555" stroke-width="1.5" rx="2"/>
+                            <!-- Ziffern auf Display -->
+                            <text x="39" y="48" font-size="10" fill="#00ff88" text-anchor="middle" font-family="monospace">€1.89</text>
+                            <!-- Kraftstofftyp-Streifen -->
+                            <rect x="20" y="55" width="38" height="8" fill="#ff5722"/>
+                            <text x="39" y="62" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold">SUPER</text>
+                            <!-- Basis -->
+                            <rect x="15" y="83" width="48" height="6" fill="#9e9e9e" stroke="#555" stroke-width="1.5" rx="2"/>
+                            <!-- Schlauch -->
+                            <path d="M 58 45 Q 80 40 82 55 Q 84 68 72 70" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <!-- Zapfpistole -->
+                            <rect x="65" y="68" width="14" height="6" fill="#333" rx="2" transform="rotate(-30 65 68)"/>
+                            <rect x="70" y="72" width="6" height="10" fill="#555" rx="1" transform="rotate(-30 70 72)"/>
+                            <!-- Kraftstoff-Tropfen -->
+                            <path d="M 78 88 Q 75 82 78 78 Q 81 82 78 88 Z" fill="#ff9800" opacity="0.85"/>
+                        </svg>
+                    </div>
+                    <div class="card-title">Tanken</div>
+                    <div class="card-domain">tanken.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+
                 <!-- Gold -->
-                <a href="https://www.bekerh.ddns.net/gold.html" class="card" style="--card-index: 2; clip-path: url(#cloud3);"
+                <a href="https://www.bekerh.ddns.net/gold.html" class="card" style="--card-index: 3; clip-path: url(#cloud4);"
                     target="_blank">
                     <div class="icon">
                         <img src="dagobert.webp" alt="Gold Icon" style="width: 70px; height: 70px; object-fit: contain;">
