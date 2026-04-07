@@ -2,7 +2,7 @@
 
 Ein modernes, responsives Web-Dashboard zur zentralen Verwaltung und Übersicht von verschiedenen Webdiensten mit Echtzeitwetterdaten, organisiert in übersichtlichen Kategorien.
 
-![Bekers Welt Dashboard Screenshot](html/screenshot.png)
+![Bekers Welt Dashboard Screenshot](homepage.png)
 
 ## Was macht die App?
 
