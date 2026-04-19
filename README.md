@@ -21,16 +21,16 @@ Das Dashboard bietet eine zentrale Übersicht über folgende Funktionen:
 
 Das Dashboard organisiert alle Services in 6 Rahmen, die responsiv nebeneinander angeordnet sind:
 
-### 🏠 Haushalt
+### 🏠 EnergieVerbrauch
 - **Jitsi Video Conference**: Video-Konferenz-Lösung
 - **Shell Cloud Control**: Shelly Smart Home Steuerung
 - **MQTT Explorer**: MQTT Broker und Message Management
 - **Home Server**: Zentrale Home-Automation und Server-Management
+- **EnergieVerbrauch**: Historische Wetterdaten und Statistiken
 
 ### 📰 Nachrichten
 - **News**: Nachrichten-Aggregator
 - **Wetter**: Wettervorhersage und aktuelle Wetterdaten
-- **Wetter Archive**: Historische Wetterdaten und Statistiken
 - **Krone**: Österreichische Nachrichtenplattform
 
 ### 🎮 Spiele
@@ -80,8 +80,8 @@ Die App ist eine **Single Page Application (SPA)** mit folgender Struktur:
 ├────────────────────────────────────────────────────┤
 │ Frames Container (4 Spalten, responsive):          │
 │ ┌──────────────┬──────────────┬──────────────┬──────┐
-│ │ 🏠 Haushalt  │ 📰 Nach-      │ 🎮 Spiele    │ 🔬   │
-│ │              │ richten       │              │ Wiss. │
+│ │ 🏠 Energie-  │ 📰 Nach-      │ 🎮 Spiele    │ 🔬   │
+│ │   Verbrauch  │ richten       │              │ Wiss. │
 │ ├──────────────┼──────────────┼──────────────┼──────┤
 │ │ ⚙️ Server-   │ 🛠️ Werk-      │              │      │
 │ │ Verwaltung   │ zeuge         │              │      │

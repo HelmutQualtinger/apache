@@ -42,7 +42,7 @@ A single-file SPA with no build step. All CSS and JS are inline.
 - `.grid` — top row of main service cards
 - `.frames-container` holding 6 `<div>` frames in order:
   1. `.news-frame` — Nachrichten
-  2. `.communication-frame` — Haushalt
+  2. `.communication-frame` — EnergieVerbrauch
   3. `.games-frame` — Spiele
   4. `.science-frame` — Wissenschaft
   5. `.server-frame` — Server-Verwaltung
