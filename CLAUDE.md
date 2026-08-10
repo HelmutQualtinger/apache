@@ -4,15 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Running the Stack
 
-```bash
-# Start Apache serving html/ on port 8081
-docker-compose up -d
-
-# Stop
-docker-compose down
-```
-
-The container maps `./html/` → `/usr/local/apache2/htdocs/` via `httpd:2.4`. The live site is at `https://www.bekerh.ddns.net/` (port 80 via reverse proxy) and locally at `http://localhost:8081`.
+`docker-compose up -d` / `docker-compose down` (see `docker-compose.yml` for the port/volume mapping). The live site is at `https://www.bekerh.ddns.net/` (port 80 via reverse proxy) and locally at `http://localhost:8081`.
 
 ## Taking a Snapshot
 
@@ -54,19 +46,4 @@ A single-file SPA with no build step. All CSS and JS are inline.
 - Search/filter over all `.card` elements
 - Open-Meteo weather fetch for Rebstein (lat 47.4167, lon 9.3167), refreshed every 10 minutes
 
-## Adding a Service Card
-
-Each card follows this pattern inside the relevant `*-frame` div:
-
-```html
-<a href="URL" class="card" style="--card-index: N; clip-path: url(#cloudN);" target="_blank">
-    <div class="icon"><!-- emoji, <img>, or inline <svg> --></div>
-    <div class="card-title">Title</div>
-    <div class="card-domain">domain.example.com</div>
-    <div class="status"><span class="status-dot"></span>Online</div>
-</a>
-```
-
-- `--card-index` controls the staggered animation delay; increment sequentially within the frame
-- `clip-path` cycles through `#cloud1`–`#cloud7`
-- Icons can be emoji text, `<img>` tags, or inline SVG
+See the `add-service-card` skill for the card template pattern.
