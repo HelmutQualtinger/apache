@@ -37,6 +37,7 @@ Das Dashboard organisiert alle Services in 6 Rahmen, die responsiv nebeneinander
 - **Chess**: Schachspiel mit Online-Multiplayer
 - **Tetris**: Klassisches Tetris-Game
 - **Sudoku**: Sudoku-Rätsel mit Hover-Rotations-Animation
+- **Mühle**: Nine Men's Morris mit 3D-Spielbrett (Three.js/WebGL)
 
 ### 🔬 Wissenschaft
 - **Newton**: Newton-Fraktal Explorer (AI Studio App)
