@@ -571,6 +571,36 @@
             min-height: 400px;
         }
 
+        .bike-tour-row {
+            display: flex;
+            justify-content: center;
+            max-width: 960px;
+            margin: 0 auto 40px;
+        }
+
+        .bike-tour-row .webcam-section-small {
+            flex: none;
+            width: 100%;
+        }
+
+        .bike-tour-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bike-tour-container iframe {
+            display: block;
+            width: 960px;
+            height: 480px;
+            max-width: 100%;
+            aspect-ratio: 2 / 1;
+            border: none;
+        }
+
         .news-frame {
             order: 2;
         }
@@ -1073,6 +1103,18 @@
                     </div>
                     <div class="card-title">Mühle</div>
                     <div class="card-domain">muehle.bekerh.ddns.net</div>
+                    <div class="status"><span class="status-dot"></span>Online</div>
+                </a>
+
+                <!-- Towers of Hanoi -->
+                <a href="https://helmutqualtinger.github.io/hanoi/" class="card" style="--card-index: 9; clip-path: url(#cloud3);"
+                    target="_blank">
+                    <div class="icon">
+                        <img src="https://helmutqualtinger.github.io/hanoi/screenshot.jpg"
+                            alt="Towers of Hanoi" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="card-title">Towers of Hanoi</div>
+                    <div class="card-domain">helmutqualtinger.github.io</div>
                     <div class="status"><span class="status-dot"></span>Online</div>
                 </a>
             </div>
@@ -1650,6 +1692,17 @@
                 <div class="webcam-container-small">
                     <iframe src="https://saentis.roundshot.com/" title="Säntis 360° Panorama Webcam" frameborder="0"
                         allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bike-tour-row">
+            <div class="webcam-section-small">
+                <div class="weather-title">🚴 Radtour am Bodensee bei Bregenz</div>
+                <div class="bike-tour-container">
+                    <iframe width="960px" height="480px" src="https://player.kinomap.com/zvrc84"
+                        title="Radtour vom Bodensee nach Dornbirn" frameborder="0" allowfullscreen="true"></iframe>
                 </div>
             </div>
         </div>
