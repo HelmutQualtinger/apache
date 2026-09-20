@@ -1,0 +1,15 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Gehäuse -->
+    <rect x="18" y="8" width="64" height="84" rx="10" fill="#eef2f5" stroke="#4a5a68" stroke-width="3"/>
+    <!-- Display -->
+    <rect x="27" y="17" width="46" height="16" rx="3" fill="#1f2d3a"/>
+    <text x="50" y="30" font-size="12" font-weight="bold" font-family="monospace" fill="#7CFC98" text-anchor="middle">01234</text>
+    <!-- Scheibe -->
+    <circle cx="50" cy="56" r="17" fill="#ffffff" stroke="#4a5a68" stroke-width="2.5"/>
+    <!-- Blitz -->
+    <path d="M54 43 L43 58 H50 L46 70 L58 54 H51 Z" fill="#f5b400" stroke="#c98a00" stroke-width="1" stroke-linejoin="round"/>
+    <!-- Klemmen -->
+    <rect x="28" y="81" width="8" height="6" rx="1.5" fill="#4a5a68"/>
+    <rect x="46" y="81" width="8" height="6" rx="1.5" fill="#4a5a68"/>
+    <rect x="64" y="81" width="8" height="6" rx="1.5" fill="#4a5a68"/>
+</svg>
